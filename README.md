@@ -17,7 +17,7 @@ The `.t3kpreset` file format was reverse-engineered from the plugin's
 skill/tone3000-preset-builder/         the Claude skill
   SKILL.md                             the workflow Claude follows
   references/                          chain grammar, gear map, artist rig memory, DI-reamp rules, API, binary format
-    artist-rig-memory.json             offline memory database (40+ iconic artists & Equipboard stacks)
+    artist-rig-memory.json             offline memory database (80+ iconic artists covering Equipboard pages 1-5)
     artist-rig-library.md              searchable rig library & hardware reference
   scripts/t3k.py                       the CLI (search, build, verify, rig, install-templates)
   presets/standard/                    ~39 recipes, pre-built + verified (mic'd amps, mono+stereo)
@@ -59,18 +59,20 @@ the skill can install them instantly, offline, without hitting the TONE3000 API 
 
 ## Offline Artist Rig Memory (Equipboard Stacks)
 
-For users running locally without internet access, the repo includes a **persistent rig mapping memory** seeded from historical gear breakdowns and [Equipboard](https://equipboard.com/role/guitarists):
-- **40+ pre-mapped artist rig profiles**: Hendrix, Page, Gilmour, EVH, Slash, Prince, SRV, Clapton, Cobain, Iommi, Brian May, Hetfield, Frusciante, Knopfler, Morello, Mayer, Santana, Beck, Moore, Rhoads, and more.
+For users running locally without internet access, the repo includes a **persistent rig mapping memory** seeded from historical gear breakdowns and [Equipboard's Top Guitarists (Pages 1–5)](https://equipboard.com/role/guitarists):
+- **80+ pre-mapped artist rig profiles**: Hendrix, Page, Gilmour, EVH, Slash, Prince, SRV, Clapton, Cobain, Homme, Kevin Parker, Bellamy, Alex Turner, Iommi, Brian May, Hetfield, Frusciante, Knopfler, Morello, Mayer, Santana, Beck, Moore, Rhoads, Dimebag, Tim Henson, Tosin Abasi, Jonny Greenwood, Noel Gallagher, Rivers Cuomo, Stephen Carpenter, Jim Root, St. Vincent, Gary Clark Jr., and more.
 - **Full hardware specifications**: Exact guitars, pickups, overdrive/fuzz pedals, amp heads, cabinets, speakers, outboard compression, and reverb types.
 - **Pre-mapped TONE3000 captures**: Tested Tone IDs and model regexes ready to build without an active connection.
 - **Continuously growing**: When new rigs or solos are researched, they can be saved back to memory with `python scripts/t3k.py rig --add <file.json>`.
 
 ```bash
 python scripts/t3k.py rig "prince"                          # query Prince hardware stack & TONE3000 IDs
-python scripts/t3k.py rig "hendrix"                         # query Hendrix rig spec
-python scripts/t3k.py rig list                              # view all 40+ artists in memory
+python scripts/t3k.py rig "josh homme"                      # query Josh Homme / QOTSA rig spec
+python scripts/t3k.py rig "tame impala"                     # query Kevin Parker psychedelic chain
+python scripts/t3k.py rig list                              # view all 80+ artists in memory
 python scripts/t3k.py rig --add new_profile.json            # add/update artist rig in repository memory
 ```
+
 
 ---
 

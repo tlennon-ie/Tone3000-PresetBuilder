@@ -52,7 +52,7 @@ First, check the local repository memory to see if the artist/song hardware stac
 ```
 python scripts/t3k.py rig "<artist or song>"
 ```
-The repository includes an offline database (`references/artist-rig-memory.json` / `references/artist-rig-library.md`) of 40+ iconic artists seeded from Equipboard and historical rig rundowns. If a match exists, use its verified hardware spec and pre-mapped captures immediately — no web searching required!
+The repository includes an offline database (`references/artist-rig-memory.json` / `references/artist-rig-library.md`) of 80+ iconic artists seeded from Equipboard (pages 1–5) and historical rig rundowns. If a match exists, use its verified hardware spec and pre-mapped captures immediately — no web searching required!
 
 If not in memory, read `references/gear-research.md`. Cross-reference what the player actually used:
 2–4 targeted web searches (`<artist> equipboard pedals`, `<artist> equipboard amplifier`, plus the song/era if given).
@@ -139,7 +139,7 @@ python scripts/t3k.py rig --add new_profile.json
 ```
 
 ## References
-- `references/artist-rig-memory.json` — queryable offline database of 40+ artist rigs & Equipboard specs
+- `references/artist-rig-memory.json` — queryable offline database of 80+ artist rigs & Equipboard specs (pages 1-5)
 - `references/artist-rig-library.md` — human-readable catalog and hardware cheat-sheet
 - `references/intake.md` — question bank and rig → chain rules
 - `references/di-reamp-mode.md` — users with real power amps/cabs who want preamp-only, no cab, no mic
