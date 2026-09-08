@@ -11,24 +11,70 @@ The `.t3kpreset` file format was reverse-engineered from the plugin's
 ```
 skill/tone3000-preset-builder/         the Claude skill
   SKILL.md                             the workflow Claude follows
-  references/                          chain grammar, gear map, DI-reamp rules, API, binary format
-  scripts/t3k.py                       the CLI (search, build, verify, install-templates)
+  references/                          chain grammar, gear map, artist rig memory, DI-reamp rules, API, binary format
+    artist-rig-memory.json             offline memory database (40+ iconic artists & Equipboard stacks)
+    artist-rig-library.md              searchable rig library & hardware reference
+  scripts/t3k.py                       the CLI (search, build, verify, rig, install-templates)
   presets/standard/                    ~39 recipes, pre-built + verified (mic'd amps, mono+stereo)
   presets/di-reamp/                    8 recipes, pre-built + verified (preamp-only, no cab/mic)
-examples/library.json                  source recipes behind presets/standard
-examples/di-reamp.json                 source recipes behind presets/di-reamp
+examples/                              source recipes (library.json, rolling-stone-top-solos.json, etc.)
 ```
 The `presets/` folders ship real, working `.t3kpreset` files in the repo (not just recipe JSON) so
 the skill can install them instantly, offline, without hitting the TONE3000 API at all.
+
+---
+
+## See it in action
+
+![TONE3000 Preset Builder in action](assets/example.gif)
+
+### Example Flow: Building Presets for Iconic Guitar Solos
+
+**User Prompt:**
+> *"Build me a mono and stereo preset for the top guitar solos of all time (Steely Dan - Kid Charlemagne, Prince - Purple Rain, Deep Purple - Highway Star, Allman Brothers - Blue Sky, Lynyrd Skynyrd - Free Bird, Chuck Berry - Johnny B. Goode)"*
+
+1. **Rig Research & Memory Check**: Cross-references verified studio gear against the local `artist-rig-memory.json` database and historical rig rundowns (e.g. Prince's Hohner MadCat + Boss DS-1 into a Mesa Mark; Blackmore's 1968 Marshall Major 200W + Rangemaster Treble Booster; Chuck Berry's Gibson GA-200 amp & Chess Studios tape echo).
+2. **Live Catalog Resolution**: Queries the official TONE3000 API v1 (`tone3000.com/api/v1`) for the highest-rated, authentic Neural Amp Modeler (NAM) models and IR captures.
+3. **Preset Generation & Gain Staging**: Generates byte-exact JUCE `ValueTree` binary `.t3kpreset` files with unity gain staging (+7.7 dB IR pad compensation, calibrated wet/dry reverb mixes).
+4. **Stereo Voicing**: Builds complementary stereo pairs — e.g. dual-mic blends (SM57 + MD421 for Larry Carlton), dual-lead players (Duane Allman Left + Dickey Betts Right for *Blue Sky*), or multi-amp stacks (Marshall Major + Super Lead for *Highway Star*).
+5. **Instant Local Verification**: Verifies the binary structure and writes directly to your local `%APPDATA%\TONE3000\Presets` folder — ready to play instantly in your DAW.
+
+| Song & Artist | Original Rig | TONE3000 Chain | Stereo Voicing |
+| :--- | :--- | :--- | :--- |
+| **Prince**<br>*Purple Rain* (1984) | Hohner MadCat Tele → Boss DS-1 → Mesa Boogie Mark → Plate Reverb | **Tone 89559** (Boss DS-1 `CLASSIC`) → **Tone 89805** (Boogie Mark V 1x12 `LEAD`) → **Tone 69103** (LA-2A Tube Compressor) → **Tone 88038** (Alabs Cetus `Plate`, 32% mix) | **Left**: Mark V Lead<br>**Right**: Mark V Rhythm (both pushed by DS-1 for stadium width) |
+| **Deep Purple**<br>*Highway Star* (1972)<br>*(Ritchie Blackmore)* | 1968 Strat → Dallas Rangemaster → 1968 Marshall Major 200W cranked dimed → Pulsonic 4x12 | **Tone 87264** (Dallas Rangemaster `SET 5`) → **Tone 51310** (Marshall Major 200 Plexi 1968 `Dimed BAL3`) → **Tone 88038** (Alabs Cetus `Room`, 20% mix) | **Left**: Marshall Major 200W Dimed<br>**Right**: Marshall Super Lead 12,000 Series (both boosted) |
+| **The Allman Brothers Band**<br>*Blue Sky* (1972)<br>*(Duane Allman & Dickey Betts)* | 1957/59 Les Pauls → 50W Marshall 1987 Plexis cranked → 4x12 cabs | **Tone 65578** (Marshall JMP-50 Lead 1969 `FAT CAB`) → **Tone 69103** (LA-2A Tube Compressor) → **Tone 88038** (Alabs Cetus `Room`, 22% mix) | **Left**: Duane Allman (1969 JMP-50)<br>**Right**: Dickey Betts (1976 JMP 50W Jumpered) |
+| **Lynyrd Skynyrd**<br>*Free Bird* (1973)<br>*(Allen Collins)* | 1964 Gibson Firebird I → 100W Marshall Super Lead Plexi cranked | **Tone 72145** (1968 Marshall Super Lead 12,000 Series `BRI CAB`) → **Tone 69103** (LA-2A Compressor) → **Tone 88038** (Alabs Cetus `Room`, 25% mix) | **Left**: 1968 Marshall Super Lead 12k<br>**Right**: 1969 Marshall JMP Super Lead (multi-tracked wall) |
+| **Chuck Berry**<br>*Johnny B. Goode* (1958) | Gibson ES-350T → Gibson GA tube amp / Tweed Bassman → Chess Studios tape slapback | **Tone 60033** (Gibson GA-200 Rhythm King 1960 `BAL CAB`) → **Tone 65088** (Echo Fix EF-X2 Tape Delay, 35% mix) → **Tone 88038** (Alabs Cetus `Room`, 18% mix) | **Left**: Gibson GA-200 Rhythm King<br>**Right**: Eric Clapton's 1950s Bassman 5F6-A |
+| **Steely Dan**<br>*Kid Charlemagne* (1976)<br>*(Larry Carlton)* | 1969 ES-335 → 1960 Tweed Deluxe 5E3 → LA-2A → Room | **Tone 54580** (1960 Tweed Deluxe 5E3 `SM57 CAP EDGE`) → **Tone 69103** (LA-2A Classic) → **Tone 88038** (Alabs Cetus `Room`, 22% mix) | **Left**: Shure SM57 Cap Edge<br>**Right**: Sennheiser MD 421 Middle |
+
 <img width="1026" height="646" alt="Ableton_Live_12_Suite_83P2aJaNke" src="https://github.com/user-attachments/assets/ce352932-c5ae-4f86-a00f-6eb287087379" />
 
+---
+
+## Offline Artist Rig Memory (Equipboard Stacks)
+
+For users running locally without internet access, the repo includes a **persistent rig mapping memory** seeded from historical gear breakdowns and [Equipboard](https://equipboard.com/role/guitarists):
+- **40+ pre-mapped artist rig profiles**: Hendrix, Page, Gilmour, EVH, Slash, Prince, SRV, Clapton, Cobain, Iommi, Brian May, Hetfield, Frusciante, Knopfler, Morello, Mayer, Santana, Beck, Moore, Rhoads, and more.
+- **Full hardware specifications**: Exact guitars, pickups, overdrive/fuzz pedals, amp heads, cabinets, speakers, outboard compression, and reverb types.
+- **Pre-mapped TONE3000 captures**: Tested Tone IDs and model regexes ready to build without an active connection.
+- **Continuously growing**: When new rigs or solos are researched, they can be saved back to memory with `python scripts/t3k.py rig --add <file.json>`.
+
+```bash
+python scripts/t3k.py rig "prince"                          # query Prince hardware stack & TONE3000 IDs
+python scripts/t3k.py rig "hendrix"                         # query Hendrix rig spec
+python scripts/t3k.py rig list                              # view all 40+ artists in memory
+python scripts/t3k.py rig --add new_profile.json            # add/update artist rig in repository memory
+```
+
+---
 
 ## Requirements
 - **TONE3000 plugin or standalone app** installed and run at least once (creates the preset folder).
 - **Python 3.8+** on the PATH. No packages — standard library only.
 - **Authentication**: needed only for searching the live catalog or building *new* (non-template) presets.
   Authenticate via official TONE3000 OAuth 2.0 PKCE (`python scripts/t3k.py login`) or set an API Secret Key
-  via `T3K_SECRET_KEY`. Bundled preset templates install and verify 100% offline without credentials.
+  via `T3K_SECRET_KEY`. Bundled preset templates and rig memory work 100% offline without credentials.
 
 ## Install the skill
 **Claude.ai / Claude Desktop / Cowork:** zip the `skill/tone3000-preset-builder` folder and upload
@@ -37,26 +83,29 @@ it under *Settings -> Skills* (or drop the folder into your skills directory).
 `~/.claude/skills/` for all projects).
 
 Then just ask, e.g.: *"Build me a Foo Fighters Everlong chorus tone in TONE3000, stereo."* Claude
-will offer to install the bundled template library first, find your preset folder, ask what your
-rig is (monitors vs real amp vs real power amp/cabs) if it doesn't know, search tone3000.com for
-the captures, build, verify, and write the files. Reopen the preset browser in TONE3000 to see them.
+will check the local rig memory or offer to install the bundled template library first, find your preset folder,
+search tone3000.com for any missing captures, build, verify, and write the files. Reopen the preset browser in TONE3000 to see them.
 
 ## Use the CLI directly
 ```bash
 cd skill/tone3000-preset-builder
-python scripts/t3k.py login                                # authenticate via official OAuth 2.0 PKCE
-python scripts/t3k.py whoami                               # show authenticated user info
-python scripts/t3k.py presets-dir                          # where presets go on this machine
-python scripts/t3k.py install-templates --category all     # drop in every bundled preset, offline
+python scripts/t3k.py rig "prince"                          # query offline artist rig memory
+python scripts/t3k.py rig list                              # list all 40+ artists in offline memory
+python scripts/t3k.py login                                 # authenticate via official OAuth 2.0 PKCE
+python scripts/t3k.py whoami                                # show authenticated user info
+python scripts/t3k.py presets-dir                           # where presets go on this machine
+python scripts/t3k.py install-templates --category all      # drop in every bundled preset, offline
 python scripts/t3k.py install-templates --category di-reamp
 python scripts/t3k.py search "tube screamer" --gear pedal
-python scripts/t3k.py tone 86314                            # models, tags, description
-python scripts/t3k.py build ../../examples/library.json --copy-to ./out
+python scripts/t3k.py tone 86314                             # models, tags, description
+python scripts/t3k.py build ../../examples/rolling-stone-top-solos.json --copy-to ./out
 python scripts/t3k.py verify "%APPDATA%\TONE3000\Presets\<file>.t3kpreset"
 python scripts/t3k.py list
 ```
 Recipe format, gain maths and the binary format: `references/preset-format.md`.
+Offline artist rig library: `references/artist-rig-library.md`.
 DI/reamp rig rules (who it's for, what "no cab, ever" means): `references/di-reamp-mode.md`.
+
 
 ## Authentication
 

@@ -793,9 +793,138 @@ def verify(path, quiet=False):
     return root["props"].get("name"), len(blocks), problems
 
 # ----------------------------------------------------------------------------
+# Artist Rig Memory Database (Equipboard & Rig Rundown Reference)
+# ----------------------------------------------------------------------------
+def rig_memory_paths():
+    cand = [
+        os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "references", "artist-rig-memory.json")),
+        os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "skill", "tone3000-preset-builder", "references", "artist-rig-memory.json")),
+        os.path.abspath("skill/tone3000-preset-builder/references/artist-rig-memory.json"),
+        os.path.abspath("references/artist-rig-memory.json"),
+    ]
+    for p in cand:
+        if os.path.isfile(p):
+            return p
+    return cand[0]
+
+def load_rig_memory():
+    p = rig_memory_paths()
+    if not os.path.isfile(p):
+        return [], p
+    with open(p, "r", encoding="utf-8") as f:
+        return json.load(f), p
+
+def save_rig_memory(rigs, path):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(rigs, f, indent=2, ensure_ascii=False)
+
+def rig_command(query, add_path, json_mode):
+    rigs, mem_path = load_rig_memory()
+
+    if add_path:
+        if not os.path.isfile(add_path):
+            sys.exit(f"File not found: {add_path}")
+        with open(add_path, "r", encoding="utf-8") as f:
+            new_data = json.load(f)
+        if isinstance(new_data, dict):
+            new_data = [new_data]
+        existing_ids = {r["id"] for r in rigs}
+        for item in new_data:
+            if not item.get("id"):
+                item["id"] = re.sub(r"[^\w\-]+", "-", f"{item.get('artist', 'artist')}-{item.get('song', 'tone')}").lower()
+            if item["id"] in existing_ids:
+                rigs = [item if r["id"] == item["id"] else r for r in rigs]
+                print(f"Updated rig profile: {item['id']}")
+            else:
+                rigs.append(item)
+                existing_ids.add(item["id"])
+                print(f"Added new rig profile: {item['id']}")
+        save_rig_memory(rigs, mem_path)
+        print(f"Successfully saved {len(rigs)} profiles to {mem_path}")
+        return
+
+    q = (query or "").strip().lower()
+
+    if not q or q == "list":
+        if json_mode:
+            print(json.dumps([{"id": r["id"], "artist": r["artist"], "song": r["song"], "genres": r.get("genres", [])} for r in rigs], indent=2))
+            return
+        print(f"\nTONE3000 Artist Rig Memory ({len(rigs)} profiles in {os.path.basename(mem_path)}):\n")
+        print(f"{'ID':<34} {'Artist':<24} {'Song / Era':<24}")
+        print("-" * 84)
+        for r in rigs:
+            print(f"{r['id']:<34} {r.get('artist', ''):<24} {r.get('song', ''):<24}")
+        print("\nUse `python scripts/t3k.py rig <term>` to view full hardware specs & TONE3000 mappings.")
+        return
+
+    matches = []
+    for r in rigs:
+        blob = " ".join([
+            r.get("id", ""),
+            r.get("artist", ""),
+            r.get("song", ""),
+            " ".join(r.get("genres", [])),
+            " ".join(r.get("guitars", [])),
+            " ".join(r.get("pedals", [])),
+            r.get("amp", ""),
+            r.get("cab", ""),
+            r.get("outboard", ""),
+            r.get("notes", ""),
+        ]).lower()
+        if q in blob:
+            matches.append(r)
+
+    if not matches:
+        print(f"No artist rig profiles found matching '{query}'. Run `python scripts/t3k.py rig list` to see all.")
+        return
+
+    if json_mode:
+        print(json.dumps(matches, indent=2))
+        return
+
+    print(f"\nFound {len(matches)} matching artist rig profile(s):\n")
+    for r in matches:
+        print("=" * 75)
+        print(f"{r.get('artist', 'Artist')} — {r.get('song', 'Song')} ({r.get('year', '')})")
+        print("=" * 75)
+        if r.get("genres"):
+            print(f"  Genres:       {', '.join(r['genres'])}")
+        if r.get("equipboard_url"):
+            print(f"  Equipboard:   {r['equipboard_url']}")
+        if r.get("guitars"):
+            print(f"  Guitars:      {', '.join(r['guitars'])}")
+        if r.get("pedals"):
+            print(f"  Pedals:       {', '.join(r['pedals'])}")
+        if r.get("amp"):
+            print(f"  Amplifier:    {r['amp']}")
+        if r.get("cab"):
+            print(f"  Cabinet/Spk:  {r['cab']}")
+        if r.get("outboard"):
+            print(f"  Outboard:     {r['outboard']}")
+        if r.get("reverb"):
+            print(f"  Reverb/Space: {r['reverb']}")
+        if r.get("notes"):
+            print(f"  Notes:        {r['notes']}")
+        if r.get("stereo_strategy"):
+            print(f"  Stereo:       {r['stereo_strategy']}")
+        if r.get("t3k_chain"):
+            print("  TONE3000 Chain Mapping:")
+            for b in r["t3k_chain"]:
+                mix_s = f", mix={b['mix']}" if "mix" in b else ""
+                print(f"    [{b.get('gear', 'gear')}] Tone {b.get('tone')}: {b.get('name', '')} (model: {b.get('model', '')}{mix_s})")
+        print()
+
+# ----------------------------------------------------------------------------
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
+
+    # Rig memory command
+    rg = sub.add_parser("rig", help="query or update offline artist rig memory database")
+    rg.add_argument("query", nargs="?", default="", help="artist, song, or gear search term (or 'list')")
+    rg.add_argument("--add", help="path to new rig JSON profile to add to memory")
+    rg.add_argument("--json", action="store_true", help="output matching rigs as JSON")
 
     # Auth commands
     lg = sub.add_parser("login", help="authenticate with TONE3000 via OAuth 2.0 PKCE or Secret Key")
@@ -840,7 +969,9 @@ def main():
 
     a = ap.parse_args()
 
-    if a.cmd == "login":
+    if a.cmd == "rig":
+        rig_command(a.query, a.add, a.json)
+    elif a.cmd == "login":
         login_flow(client_id=a.client_id, secret_key=a.secret_key, redirect_uri=a.redirect_uri, port=a.port, no_browser=a.no_browser)
     elif a.cmd == "logout":
         if clear_stored_auth():

@@ -47,13 +47,19 @@ Read `references/intake.md`. Ask in one short message, skipping anything already
   humbuckers into a plexi → run the amp capture's lower-gain model).
 One round of questions maximum; then build. Plain "just make it" → sensible defaults, stated.
 
-### 3. Research the real gear (silent — before you design anything)
-Read `references/gear-research.md`. Before reaching for the static artist map, cross-reference
-what the player actually used: 2–4 targeted web searches (`<artist> equipboard pedals`,
-`<artist> equipboard amplifier`, plus the song/era if given). **Do not attempt to fetch
-equipboard.com directly** — it blocks automated access (robots.txt + Cloudflare, confirmed) —
+### 3. Check memory & research real gear (silent — before you design anything)
+First, check the local repository memory to see if the artist/song hardware stack is already documented:
+```
+python scripts/t3k.py rig "<artist or song>"
+```
+The repository includes an offline database (`references/artist-rig-memory.json` / `references/artist-rig-library.md`) of 40+ iconic artists seeded from Equipboard and historical rig rundowns. If a match exists, use its verified hardware spec and pre-mapped captures immediately — no web searching required!
+
+If not in memory, read `references/gear-research.md`. Cross-reference what the player actually used:
+2–4 targeted web searches (`<artist> equipboard pedals`, `<artist> equipboard amplifier`, plus the song/era if given).
+**Do not attempt to fetch equipboard.com directly** — it blocks automated access (robots.txt + Cloudflare, confirmed) —
 work from the search tool's indexed snippets instead, which already pull from equipboard, Ground
 Guitar, and rig-rundown interviews. This step is silent; don't narrate the searches to the user.
+
 
 ### 4. Design the chain
 Read `references/tone-recipes.md` for chain grammar, genre defaults, and a starting gear map for
@@ -125,7 +131,16 @@ caveats (an effect NAM can't do, a sound-alike used instead of the exact amp, a 
 want to trim, or where real gear research changed the chain from the obvious guess). Offer the
 download copies. Keep it short — cite sourcing in a phrase, not a bibliography.
 
+### 8. Grow repository memory (continuous learning)
+When you research a new artist, song, or era that isn't already stored in `references/artist-rig-memory.json`,
+save the researched profile back into memory so the repository library continuously expands for offline use:
+```bash
+python scripts/t3k.py rig --add new_profile.json
+```
+
 ## References
+- `references/artist-rig-memory.json` — queryable offline database of 40+ artist rigs & Equipboard specs
+- `references/artist-rig-library.md` — human-readable catalog and hardware cheat-sheet
 - `references/intake.md` — question bank and rig → chain rules
 - `references/di-reamp-mode.md` — users with real power amps/cabs who want preamp-only, no cab, no mic
 - `references/gear-research.md` — cross-referencing real rigs via search (equipboard etc.) before designing
@@ -133,3 +148,5 @@ download copies. Keep it short — cite sourcing in a phrase, not a bibliography
 - `references/api.md` — official REST API v1, OAuth 2.0 PKCE, search & model endpoints, model_url
 - `references/preset-format.md` — recipe schema, on-disk binary format, gain/mix maths, Params
 - `../../examples/library.json` — 34 worked recipes (mono+stereo) to copy patterns from
+- `../../examples/rolling-stone-top-solos.json` — worked solo recipes (Prince, Blackmore, Skynyrd, Allman Bros, Chuck Berry, Steely Dan)
+
