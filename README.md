@@ -7,7 +7,12 @@ written straight into your TONE3000 preset folder, using captures searched live 
 The `.t3kpreset` file format was reverse-engineered from the plugin's
 [open-source code](https://github.com/tone-3000/tone3000-plugin) and is written byte-exact.
 
+## Changelog
+- **Official TONE3000 API v1 & OAuth 2.0**: Migrated from legacy scraping to official REST API v1 with OAuth 2.0 PKCE browser login and Secret Key support.
+- **Offline Artist Rig Memory & Web Search Hybrid**: Added persistent artist hardware database (`t3k.py rig`) with continuous memory growth and Equipboard integration.
+
 ## What's in here
+
 ```
 skill/tone3000-preset-builder/         the Claude skill
   SKILL.md                             the workflow Claude follows
