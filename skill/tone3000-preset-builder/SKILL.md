@@ -16,15 +16,23 @@ this session. The file format is exact-bytes binary — never hand-write it; alw
 
 ## Workflow
 
-### 1. Find the preset folder (do this first, silently)
+### 1. Check preset folder and authentication (do this first, silently)
 ```
 python scripts/t3k.py presets-dir
+python scripts/t3k.py whoami
 ```
-Prints the folder for this OS (Windows `%APPDATA%\TONE3000\Presets`, macOS
-`~/Library/Application Support/TONE3000/Presets`, Linux `~/.config/TONE3000/Presets`) and
-whether it exists. If it does not exist, TONE3000 has never been run — tell the user to install and
-launch it once (https://www.tone3000.com/plugin), or build with `--out` to a folder of their choice.
-Never overwrite or delete files you did not create; the user's own presets live here too.
+- **Preset folder**: Prints the folder for this OS (Windows `%APPDATA%\TONE3000\Presets`, macOS
+  `~/Library/Application Support/TONE3000/Presets`, Linux `~/.config/TONE3000/Presets`) and
+  whether it exists. If it does not exist, TONE3000 has never been run — tell the user to install and
+  launch it once (https://www.tone3000.com/plugin), or build with `--out` to a folder of their choice.
+  Never overwrite or delete files you did not create; the user's own presets live here too.
+- **Authentication**: If `whoami` prints user info, you're ready to search and build live tones.
+  If `whoami` reports not logged in:
+  - If the user asks for an existing artist/tone covered in `presets/` (or `examples/library.json`),
+    offer to install it offline immediately with `install-templates` (zero credentials needed).
+  - If a new live search is required, instruct the user to run `python scripts/t3k.py login`
+    (or paste their Secret Key `t3k_cs_...` from https://www.tone3000.com/settings). If the user
+    provides their key in chat, run `python scripts/t3k.py login --key <key>` for them.
 
 ### 2. Intake — ask only what changes the build
 Read `references/intake.md`. Ask in one short message, skipping anything already known:
@@ -69,6 +77,7 @@ static rig around it.
 python scripts/t3k.py search "jcm800" --gear amp-cab --n 8
 python scripts/t3k.py tone 87735            # lists every model variant + tags + description
 ```
+If authentication is needed, run `python scripts/t3k.py login` (or set `T3K_SECRET_KEY` / `T3K_API_KEY`).
 Translate real gear names into search terms per the table in `gear-research.md` (a "ProCo Rat"
 rarely matches a capture titled that exactly — search `rat`, widen if empty). Prefer: A2
 captures, high download counts, creators with settings descriptions, and titles/tags naming the
@@ -121,6 +130,6 @@ download copies. Keep it short — cite sourcing in a phrase, not a bibliography
 - `references/di-reamp-mode.md` — users with real power amps/cabs who want preamp-only, no cab, no mic
 - `references/gear-research.md` — cross-referencing real rigs via search (equipboard etc.) before designing
 - `references/tone-recipes.md` — chain grammar, genre defaults, artist gear map with IDs
-- `references/api.md` — endpoints, auth, search body, tables, model_url
+- `references/api.md` — official REST API v1, OAuth 2.0 PKCE, search & model endpoints, model_url
 - `references/preset-format.md` — recipe schema, on-disk binary format, gain/mix maths, Params
 - `../../examples/library.json` — 34 worked recipes (mono+stereo) to copy patterns from

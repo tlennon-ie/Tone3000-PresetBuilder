@@ -26,9 +26,9 @@ the skill can install them instantly, offline, without hitting the TONE3000 API 
 ## Requirements
 - **TONE3000 plugin or standalone app** installed and run at least once (creates the preset folder).
 - **Python 3.8+** on the PATH. No packages — standard library only.
-- **API key**: none of your own, needed only for building *new* (non-template) presets. The
-  script bundles TONE3000's *public* anon key (the same one the website ships to every browser).
-  No login, no cookies, no OAuth. If searches ever return **401**, the key rotated — see below.
+- **Authentication**: needed only for searching the live catalog or building *new* (non-template) presets.
+  Authenticate via official TONE3000 OAuth 2.0 PKCE (`python scripts/t3k.py login`) or set an API Secret Key
+  via `T3K_SECRET_KEY`. Bundled preset templates install and verify 100% offline without credentials.
 
 ## Install the skill
 **Claude.ai / Claude Desktop / Cowork:** zip the `skill/tone3000-preset-builder` folder and upload
@@ -44,6 +44,8 @@ the captures, build, verify, and write the files. Reopen the preset browser in T
 ## Use the CLI directly
 ```bash
 cd skill/tone3000-preset-builder
+python scripts/t3k.py login                                # authenticate via official OAuth 2.0 PKCE
+python scripts/t3k.py whoami                               # show authenticated user info
 python scripts/t3k.py presets-dir                          # where presets go on this machine
 python scripts/t3k.py install-templates --category all     # drop in every bundled preset, offline
 python scripts/t3k.py install-templates --category di-reamp
@@ -56,12 +58,44 @@ python scripts/t3k.py list
 Recipe format, gain maths and the binary format: `references/preset-format.md`.
 DI/reamp rig rules (who it's for, what "no cab, ever" means): `references/di-reamp-mode.md`.
 
-## Getting the API key (only if you see 401)
-1. Open https://www.tone3000.com/search in a browser, press F12 -> **Network**.
-2. Click any request to `api.tone3000.com` -> **Headers** -> *Request Headers* -> copy the `apikey` value.
-3. `set T3K_API_KEY=<value>` (Windows) / `export T3K_API_KEY=<value>` (macOS/Linux), or edit
-   `DEFAULT_KEY` in `scripts/t3k.py`.
-That key is the site's public anon credential; it grants read-only access to public tones.
+## Authentication
+
+TONE3000 provides an official OAuth 2.0 and API key service at [https://www.tone3000.com/api#auth](https://www.tone3000.com/api#auth).
+Generate your credentials under [Settings -> API Keys](https://www.tone3000.com/settings).
+
+### Option 1: Official OAuth 2.0 PKCE Login (Recommended)
+1. In [TONE3000 Settings](https://www.tone3000.com/settings), copy your **Publishable Key** (`t3k_pub_...`). Ensure your registered Redirect URI includes `http://localhost:8080/callback`.
+2. Run the login command and choose option `[2]` (or pass `--client-id`):
+```bash
+python scripts/t3k.py login
+```
+3. Your browser will open to the TONE3000 authorization screen. Once approved, it redirects back to localhost and securely stores your access and refresh tokens locally (`%APPDATA%\TONE3000\auth.json` on Windows, `~/.config/TONE3000/auth.json` on Linux, `~/Library/Application Support/TONE3000/auth.json` on macOS). Expired tokens are refreshed automatically.
+
+*For headless servers or environments without a desktop browser, pass `--no-browser` to paste the authorization URL and callback code manually.*
+
+### Option 2: Secret Key (Fastest Setup)
+1. In [TONE3000 Settings](https://www.tone3000.com/settings), generate and copy your **Secret Key** (`t3k_cs_...`).
+2. Save it directly via the CLI:
+```bash
+python scripts/t3k.py login --key t3k_cs_YOUR_SECRET_KEY
+```
+Or set it as an environment variable in your terminal session:
+```bash
+# Windows (PowerShell)
+$env:T3K_SECRET_KEY="t3k_cs_..."
+
+# Windows (Command Prompt)
+set T3K_SECRET_KEY=t3k_cs_...
+
+# macOS / Linux
+export T3K_SECRET_KEY=t3k_cs_...
+```
+
+### How Claude automates this for you
+When using the Claude skill:
+- Claude automatically checks your login status with `whoami`.
+- If you request a tone that matches an existing bundled template (e.g. Slash, Everlong, Hendrix, Master of Puppets, etc.), Claude installs it **100% offline** without needing any credentials.
+- If you request a new live search, Claude will check your connection. You can paste your Secret Key in the conversation, and Claude will automatically configure it for you.
 
 ## Limits worth knowing
 - NAM captures static gear only: no delay, chorus, phaser, wah, tremolo. Add those in your DAW.
