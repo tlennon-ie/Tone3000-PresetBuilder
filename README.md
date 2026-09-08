@@ -20,6 +20,8 @@ examples/di-reamp.json                 source recipes behind presets/di-reamp
 ```
 The `presets/` folders ship real, working `.t3kpreset` files in the repo (not just recipe JSON) so
 the skill can install them instantly, offline, without hitting the TONE3000 API at all.
+<img width="1026" height="646" alt="Ableton_Live_12_Suite_83P2aJaNke" src="https://github.com/user-attachments/assets/ce352932-c5ae-4f86-a00f-6eb287087379" />
+
 
 ## Requirements
 - **TONE3000 plugin or standalone app** installed and run at least once (creates the preset folder).
