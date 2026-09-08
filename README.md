@@ -65,12 +65,19 @@ That key is the site's public anon credential; it grants read-only access to pub
 - NAM captures static gear only: no delay, chorus, phaser, wah, tremolo. Add those in your DAW.
 - Custom (non-template) presets reference model URLs rather than embedding audio; TONE3000
   downloads each capture on first load (a few hundred KB each), so the first open needs internet.
-  The bundled `presets/` templates work exactly the same way — installing them is instant and
+  The bundled `presets/` templates work exactly the same way -- installing them is instant and
   offline, but TONE3000 still fetches the actual model weights the first time each is loaded.
-- The plugin caches the loaded chain — reopen the preset browser to see new files.
+- The plugin caches the loaded chain -- reopen the preset browser to see new files.
 - Never edit your own presets with anything but TONE3000; the builder only creates new files.
 
 ## Credits
-Captures belong to their creators on tone3000.com — every preset keeps the creator's name and
-links. Built with Claude; format details verified against the TONE3000 plugin and JUCE sources.
-MIT licence.
+This project would not exist without [TONE3000](https://www.tone3000.com) and its open-source
+plugin, [tone-3000/tone3000-plugin](https://github.com/tone-3000/tone3000-plugin). The
+`.t3kpreset` binary format used by every builder and template in this repo was worked out by
+reading that plugin's source (`PresetManager.cpp` and the JUCE `ValueTree` serialisation it
+relies on) -- none of it is guessed. All credit for the plugin itself, and for every NAM capture
+referenced by a preset here, goes to TONE3000 and the individual creators on tone3000.com; every
+preset keeps the creator's name and a link back to their capture.
+
+This repo (recipes, the CLI, the Claude skill, and the bundled preset templates) is built with
+Claude and is not affiliated with or endorsed by TONE3000. MIT licence.
