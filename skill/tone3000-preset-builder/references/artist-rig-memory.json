@@ -354,7 +354,7 @@
       {
         "tone": 79454,
         "gear": "pedal",
-        "model": "Silver",
+        "model": "mid gain",
         "name": "Klon Centaur Overdrive"
       },
       {
@@ -406,7 +406,7 @@
       {
         "tone": 89490,
         "gear": "amp-cab",
-        "model": "Van halen 1",
+        "model": "EVH",
         "name": "Van Halen 1 Marshall Super Lead"
       },
       {
@@ -446,7 +446,7 @@
       {
         "tone": 61106,
         "gear": "pedal",
-        "model": "Ram",
+        "model": "T5 S5",
         "name": "Electro-Harmonix Big Muff Ram's Head"
       },
       {
@@ -553,7 +553,7 @@
       {
         "tone": 88775,
         "gear": "amp-cab",
-        "model": "Super Reverb",
+        "model": "BFSR",
         "name": "Fender Super Reverb 1965"
       },
       {
@@ -648,7 +648,7 @@
       {
         "tone": 88775,
         "gear": "amp-cab",
-        "model": "Super Reverb",
+        "model": "BFSR",
         "name": "Fender Super Reverb / Twin"
       },
       {
@@ -737,7 +737,7 @@
       {
         "tone": 53601,
         "gear": "amp-cab",
-        "model": "1961 AC30",
+        "model": "VX 304",
         "name": "1961 Vox AC30/4 Normal"
       },
       {
@@ -1010,7 +1010,7 @@
       {
         "tone": 79454,
         "gear": "pedal",
-        "model": "Silver",
+        "model": "mid gain",
         "name": "Klon Centaur Overdrive"
       },
       {
@@ -1232,7 +1232,7 @@
       {
         "tone": 79454,
         "gear": "pedal",
-        "model": "Silver",
+        "model": "mid gain",
         "name": "Klon Centaur Overdrive"
       },
       {
@@ -1388,7 +1388,7 @@
       {
         "tone": 61106,
         "gear": "pedal",
-        "model": "Ram",
+        "model": "T5 S5",
         "name": "Electro-Harmonix Big Muff Fuzz"
       },
       {
@@ -1440,7 +1440,7 @@
       {
         "tone": 79454,
         "gear": "pedal",
-        "model": "Silver",
+        "model": "mid gain",
         "name": "Klon Centaur Overdrive"
       },
       {
@@ -1529,7 +1529,7 @@
       {
         "tone": 61106,
         "gear": "pedal",
-        "model": "Ram",
+        "model": "T5 S5",
         "name": "Electro-Harmonix Big Muff Fuzz"
       },
       {
@@ -1631,7 +1631,7 @@
       {
         "tone": 77706,
         "gear": "amp-cab",
-        "model": "Bluesbreaker",
+        "model": "JT45",
         "name": "Marshall JTM45 Bluesbreaker"
       },
       {
@@ -1676,7 +1676,7 @@
       {
         "tone": 77706,
         "gear": "amp-cab",
-        "model": "Bluesbreaker",
+        "model": "JT45",
         "name": "Marshall JTM45 Bluesbreaker"
       },
       {
@@ -1819,7 +1819,7 @@
       {
         "tone": 88775,
         "gear": "amp-cab",
-        "model": "Super Reverb",
+        "model": "BFSR",
         "name": "Fender Super Reverb 1965"
       },
       {
@@ -1962,7 +1962,7 @@
       {
         "tone": 74159,
         "gear": "pedal",
-        "model": "Blues Driver",
+        "model": "BD-2",
         "name": "Boss BD-2 Blues Driver"
       },
       {
@@ -2021,7 +2021,7 @@
       {
         "tone": 89509,
         "gear": "amp-cab",
-        "model": "VH4",
+        "model": "DZL",
         "name": "Diezel VH4 High Gain Lead"
       },
       {
@@ -2160,7 +2160,7 @@
       {
         "tone": 82521,
         "gear": "amp-cab",
-        "model": "AC30",
+        "model": "VX TB30",
         "name": "1964 Vox AC30 Top Boost"
       },
       {
@@ -2516,7 +2516,7 @@
       {
         "tone": 61106,
         "gear": "pedal",
-        "model": "Ram",
+        "model": "T5 S5",
         "name": "High-Saturation Fuzz / Big Muff"
       },
       {
@@ -2563,7 +2563,7 @@
       {
         "tone": 61106,
         "gear": "pedal",
-        "model": "Ram",
+        "model": "T5 S5",
         "name": "Electro-Harmonix Ram's Head Big Muff"
       },
       {
@@ -2714,7 +2714,7 @@
       {
         "tone": 75346,
         "gear": "amp-cab",
-        "model": "Marshall 6100LM",
+        "model": "M6100",
         "name": "Marshall 6100LM 30th Anniversary Half Stack"
       },
       {
@@ -2838,7 +2838,7 @@
       {
         "tone": 69206,
         "gear": "amp-cab",
-        "model": "Dual Rec",
+        "model": "MBDR",
         "name": "Mesa Boogie Dual Rectifier Rev G"
       },
       {
@@ -3013,7 +3013,7 @@
       {
         "tone": 88775,
         "gear": "amp-cab",
-        "model": "Super Reverb",
+        "model": "BFSR",
         "name": "1965 Fender Super Reverb 4x10"
       },
       {
@@ -3059,7 +3059,7 @@
       {
         "tone": 61106,
         "gear": "pedal",
-        "model": "Ram",
+        "model": "T5 S5",
         "name": "Sovtek Green Russian Big Muff Fuzz"
       },
       {
@@ -3153,13 +3153,13 @@
       {
         "tone": 79454,
         "gear": "pedal",
-        "model": "Silver",
+        "model": "mid gain",
         "name": "Transparent Dual Overdrive / King of Tone"
       },
       {
         "tone": 88775,
         "gear": "amp-cab",
-        "model": "Super Reverb",
+        "model": "BFSR",
         "name": "1965 Fender Super Reverb 4x10"
       },
       {
@@ -3247,7 +3247,7 @@
       {
         "tone": 61106,
         "gear": "pedal",
-        "model": "Ram",
+        "model": "T5 S5",
         "name": "Gated Woolly Mammoth Fuzz"
       },
       {
@@ -3386,7 +3386,7 @@
       {
         "tone": 82521,
         "gear": "amp-cab",
-        "model": "AC30",
+        "model": "VX TB30",
         "name": "1964 Vox AC30 Top Boost"
       },
       {

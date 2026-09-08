@@ -692,7 +692,7 @@ def preset_bytes(name, left, right, stereo, branch_after_id, params):
     par = node("Params", [], [node("Param", [("id", k), ("value", float(v))], []) for k, v in p.items()])
     return b"T3KB" + node("T3KPreset", [("schemaVersion", 1), ("name", name)], [snap, par])
 
-def build_recipe(r, out_dir, copy_to=None, mono=True, stereo=True):
+def build_recipe(r, out_dir, copy_to=None, mono=True, stereo=True, named=False):
     written = []
     left = [resolve_block(s) for s in r["chain"]]
     variants = []
@@ -707,14 +707,14 @@ def build_recipe(r, out_dir, copy_to=None, mono=True, stereo=True):
         variants.append((r["name"] + " [Stereo]", left2, right, True, bid))
     for name, L, R, is_st, bid in variants:
         data = preset_bytes(name, L, R, is_st, bid, r.get("params"))
-        fname = uuid.uuid4().hex + ".t3kpreset"
+        safe = re.sub(r"[^\w\- \[\]]+", "", name).strip()
+        fname = (safe + ".t3kpreset") if named else (uuid.uuid4().hex + ".t3kpreset")
         path = os.path.join(out_dir, fname)
         with open(path, "wb") as f:
             f.write(data)
         written.append(path)
         if copy_to:
             os.makedirs(copy_to, exist_ok=True)
-            safe = re.sub(r"[^\w\- \[\]]+", "", name).strip()
             with open(os.path.join(copy_to, safe + ".t3kpreset"), "wb") as f:
                 f.write(data)
         print(f"== {name}  ->  {path}")
@@ -740,7 +740,7 @@ def presets_dir():
 def install_templates(category, out_dir, source_dir=None):
     src_root = source_dir or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "presets")
     src_root = os.path.abspath(src_root)
-    cats = ["standard", "di-reamp"] if category == "all" else [category]
+    cats = ["standard", "di-reamp", "artists"] if category == "all" else [category]
     out_dir = out_dir or presets_dir()
     os.makedirs(out_dir, exist_ok=True)
     installed = []
@@ -955,6 +955,7 @@ def main():
     b.add_argument("--copy-to", help="optional secondary folder to copy named presets to")
     b.add_argument("--mono-only", action="store_true")
     b.add_argument("--stereo-only", action="store_true")
+    b.add_argument("--named", action="store_true", help="use human-readable preset names as filenames instead of UUIDs")
 
     v = sub.add_parser("verify", help="verify a .t3kpreset file")
     v.add_argument("file")
@@ -963,7 +964,7 @@ def main():
     l.add_argument("--dir", help="directory to list (default: TONE3000 presets folder)")
 
     it = sub.add_parser("install-templates", help="install bundled presets")
-    it.add_argument("--category", choices=["standard", "di-reamp", "all"], default="all")
+    it.add_argument("--category", choices=["standard", "di-reamp", "artists", "all"], default="all")
     it.add_argument("--out")
     it.add_argument("--source", help="folder containing standard/ and di-reamp/ subfolders")
 
@@ -1045,7 +1046,7 @@ def main():
         os.makedirs(out, exist_ok=True)
         allw = []
         for r in recipes:
-            allw += build_recipe(r, out, a.copy_to, mono=not a.stereo_only, stereo=not a.mono_only)
+            allw += build_recipe(r, out, a.copy_to, mono=not a.stereo_only, stereo=not a.mono_only, named=a.named)
         bad = 0
         for w in allw:
             _, n, probs = verify(w, quiet=True)

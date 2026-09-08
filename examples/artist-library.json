@@ -1,0 +1,3549 @@
+[
+  {
+    "name": "Prince - Purple Rain",
+    "chain": [
+      {
+        "tone": 89559,
+        "model": "CLASSIC",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89805,
+        "model": "LEAD",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.32,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 81803,
+          "model": "Mark IIc+",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Plate",
+          "mix": 0.32,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 1
+    }
+  },
+  {
+    "name": "Deep Purple / Ritchie Blackmore - Highway Star",
+    "chain": [
+      {
+        "tone": 87264,
+        "model": "BOOST SET 5",
+        "outGain": 0.5
+      },
+      {
+        "tone": 51310,
+        "model": "MRSH MJR",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.2,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 72145,
+          "model": "SL68",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.22,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "The Allman Brothers Band - Blue Sky",
+    "chain": [
+      {
+        "tone": 65578,
+        "model": "JM50LD",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.22,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 86687,
+          "model": "76 Mars",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.2,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Lynyrd Skynyrd / Allen Collins - Free Bird",
+    "chain": [
+      {
+        "tone": 72145,
+        "model": "SL68",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.25,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 87031,
+          "model": "1969 Marshall JMP",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.18,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Chuck Berry - Johnny B. Goode",
+    "chain": [
+      {
+        "tone": 60033,
+        "model": "GBSN G200",
+        "outGain": 0.5
+      },
+      {
+        "tone": 65088,
+        "model": "Echo Fix",
+        "mix": 0.35,
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.18,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 84556,
+          "model": "Bassman",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.25,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Steely Dan / Larry Carlton - Kid Charlemagne",
+    "chain": [
+      {
+        "tone": 54580,
+        "model": "SM57 CAP EDGE",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.22,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 65227,
+          "model": "Deluxe",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.2,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Jimi Hendrix - Purple Haze / Voodoo Child",
+    "chain": [
+      {
+        "tone": 87219,
+        "model": "Silicon",
+        "outGain": 0.5
+      },
+      {
+        "tone": 72145,
+        "model": "SL68",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Spring",
+        "mix": 0.25,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 65578,
+          "model": "JM50LD",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.22,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Led Zeppelin / Jimmy Page - Whole Lotta Love / Heartbreaker",
+    "chain": [
+      {
+        "tone": 86750,
+        "model": "4:1",
+        "outGain": 0.5
+      },
+      {
+        "tone": 79454,
+        "model": "mid gain",
+        "outGain": 0.5
+      },
+      {
+        "tone": 65578,
+        "model": "JM50LD",
+        "outGain": 0.5
+      },
+      {
+        "tone": 79572,
+        "model": "Line 0",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Chamber",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 72145,
+          "model": "SL68",
+          "outGain": 0.5
+        },
+        {
+          "tone": 79572,
+          "model": "Line 0",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.18,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Van Halen / Eddie Van Halen - Eruption / Ain't Talkin' 'Bout Love",
+    "chain": [
+      {
+        "tone": 89490,
+        "model": "EVH",
+        "outGain": 0.5
+      },
+      {
+        "tone": 84558,
+        "model": "WetDry",
+        "mix": 0.25,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 72145,
+          "model": "SL68",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Just Plate",
+          "mix": 0.28,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Pink Floyd / David Gilmour - Comfortably Numb",
+    "chain": [
+      {
+        "tone": 61106,
+        "model": "T5 S5",
+        "outGain": 0.5
+      },
+      {
+        "tone": 53037,
+        "model": "Bright Overdrive",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Chamber",
+        "mix": 0.3,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 53037,
+          "model": "Noon",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Hall",
+          "mix": 0.35,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 1
+    }
+  },
+  {
+    "name": "Guns N' Roses / Slash - Sweet Child O' Mine / November Rain",
+    "chain": [
+      {
+        "tone": 86750,
+        "model": "4:1",
+        "outGain": 0.5
+      },
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 87735,
+        "model": "JCM800",
+        "outGain": 0.5
+      },
+      {
+        "tone": 79572,
+        "model": "Line 0",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Plate",
+        "mix": 0.26,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 86314,
+          "model": "TS9",
+          "outGain": 0.5
+        },
+        {
+          "tone": 87735,
+          "model": "JCM800",
+          "outGain": 0.5
+        },
+        {
+          "tone": 79572,
+          "model": "Line 0",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.26,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Stevie Ray Vaughan - Texas Flood / Pride and Joy",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88775,
+        "model": "BFSR",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Spring",
+        "mix": 0.28,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 88775,
+          "model": "BFSR",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Spring",
+          "mix": 0.28,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Metallica / James Hetfield & Kirk Hammett - Master of Puppets / Battery",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 81803,
+        "model": "Mark IIC",
+        "outGain": 0.5
+      },
+      {
+        "tone": 79572,
+        "model": "Line 0",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.12,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 81803,
+          "model": "Mark IIC",
+          "outGain": 0.5
+        },
+        {
+          "tone": 79572,
+          "model": "Line 0",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.12,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Nirvana / Kurt Cobain - Smells Like Teen Spirit",
+    "chain": [
+      {
+        "tone": 89559,
+        "model": "CLASSIC",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88775,
+        "model": "BFSR",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.26,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 88775,
+          "model": "BFSR",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.26,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Black Sabbath / Tony Iommi - Paranoid / Iron Man",
+    "chain": [
+      {
+        "tone": 31234,
+        "model": "V7",
+        "outGain": 0.5
+      },
+      {
+        "tone": 83324,
+        "model": "Iommy",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.2,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 83324,
+          "model": "Iommy",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.2,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Queen / Brian May - Bohemian Rhapsody / Killer Queen",
+    "chain": [
+      {
+        "tone": 45843,
+        "model": "1500",
+        "outGain": 0.5
+      },
+      {
+        "tone": 53601,
+        "model": "VX 304",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "NuHall",
+        "mix": 0.28,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 53601,
+          "model": "VX 304",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Plate",
+          "mix": 0.3,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "AC/DC / Angus Young & Malcolm Young - Back in Black / Highway to Hell",
+    "chain": [
+      {
+        "tone": 80875,
+        "model": "Driven",
+        "outGain": 0.5
+      },
+      {
+        "tone": 75087,
+        "model": "SA73",
+        "outGain": 0.66
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.15,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 75087,
+          "model": "SA73",
+          "outGain": 0.66
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.15,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Red Hot Chili Peppers / John Frusciante - Under the Bridge / Scar Tissue",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 65227,
+        "model": "Deluxe",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Spring",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 65227,
+          "model": "Deluxe",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Spring",
+          "mix": 0.24,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Dire Straits / Mark Knopfler - Sultans of Swing",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 51649,
+        "model": "NEW VERSION",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.22,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 51649,
+          "model": "NEW VERSION",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Plate",
+          "mix": 0.22,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Foo Fighters / Dave Grohl & Chris Shiflett - Everlong / Monkey Wrench",
+    "chain": [
+      {
+        "tone": 87914,
+        "model": "Drive-II",
+        "outGain": 0.5
+      },
+      {
+        "tone": 79103,
+        "model": "Orange Crunch",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.16,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 79103,
+          "model": "Orange Crunch",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.16,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Green Day / Billie Joe Armstrong - Basket Case / Longview",
+    "chain": [
+      {
+        "tone": 86750,
+        "model": "8:1",
+        "outGain": 0.5
+      },
+      {
+        "tone": 87914,
+        "model": "Boost-I",
+        "outGain": 0.5
+      },
+      {
+        "tone": 78832,
+        "model": "v2",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.14,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 87914,
+          "model": "Boost-I",
+          "outGain": 0.5
+        },
+        {
+          "tone": 78832,
+          "model": "v2",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.14,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Eagles / Don Felder & Joe Walsh - Hotel California",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 79454,
+        "model": "mid gain",
+        "outGain": 0.5
+      },
+      {
+        "tone": 54580,
+        "model": "SM57",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Plate",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 79454,
+          "model": "mid gain",
+          "outGain": 0.5
+        },
+        {
+          "tone": 54580,
+          "model": "SM57",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.24,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "B.B. King - The Thrill Is Gone",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89797,
+        "model": "WARM",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Spring",
+        "mix": 0.26,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 89797,
+          "model": "CLEAN",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Spring",
+          "mix": 0.26,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Wes Montgomery - Round Midnight / Four on Six",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89797,
+        "model": "WARM",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.2,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 89797,
+          "model": "WARM",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.2,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Tool / Adam Jones - Schism / Lateralus",
+    "chain": [
+      {
+        "tone": 88012,
+        "model": "BLEND 2",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.16,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.16,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "U2 / The Edge - Where the Streets Have No Name / Bad",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 70408,
+        "model": "AC30",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Cloud",
+        "mix": 0.35,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 70408,
+          "model": "AC30",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Cloud",
+          "mix": 0.35,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "John Mayer - Gravity / Slow Dancing in a Burning Room",
+    "chain": [
+      {
+        "tone": 79454,
+        "model": "mid gain",
+        "outGain": 0.5
+      },
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 65227,
+        "model": "Deluxe",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.3,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 79454,
+          "model": "mid gain",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Plate",
+          "mix": 0.28,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Carlos Santana - Black Magic Woman / Europa / Smooth",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89805,
+        "model": "LEAD",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Hall",
+        "mix": 0.28,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 89797,
+          "model": "CLEAN",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Hall",
+          "mix": 0.3,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "ZZ Top / Billy Gibbons - La Grange / Sharp Dressed Man",
+    "chain": [
+      {
+        "tone": 72145,
+        "model": "SL68",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.2,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 69103,
+          "model": "LA-2A",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.2,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "The Smashing Pumpkins / Billy Corgan - Cherub Rock / Today / Mayonaise",
+    "chain": [
+      {
+        "tone": 61106,
+        "model": "T5 S5",
+        "outGain": 0.5
+      },
+      {
+        "tone": 87735,
+        "model": "JCM800",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.22,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 87735,
+          "model": "JCM800",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.22,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Pearl Jam / Mike McCready & Stone Gossard - Alive / Yellow Ledbetter",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 79454,
+        "model": "mid gain",
+        "outGain": 0.5
+      },
+      {
+        "tone": 84556,
+        "model": "Clapton's Bassman",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Hall",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 79454,
+          "model": "mid gain",
+          "outGain": 0.5
+        },
+        {
+          "tone": 84556,
+          "model": "Clapton's Bassman",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Hall",
+          "mix": 0.24,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Rage Against the Machine / Tom Morello - Killing in the Name / Bulls on Parade",
+    "chain": [
+      {
+        "tone": 87735,
+        "model": "JCM800",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.12,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.12,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "The White Stripes / Jack White - Seven Nation Army / Ball and Biscuit",
+    "chain": [
+      {
+        "tone": 61106,
+        "model": "T5 S5",
+        "outGain": 0.5
+      },
+      {
+        "tone": 60033,
+        "model": "GBSN G200",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Spring",
+        "mix": 0.22,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 60033,
+          "model": "GBSN G200",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Spring",
+          "mix": 0.22,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "The Rolling Stones / Keith Richards - Brown Sugar / Start Me Up / Honky Tonk Women",
+    "chain": [
+      {
+        "tone": 54580,
+        "model": "SM57",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.18,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 69103,
+          "model": "LA-2A",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.18,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Jeff Beck - Cause We've Ended as Lovers / Beck's Bolero",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 78883,
+        "model": "Crunch",
+        "outGain": 0.5
+      },
+      {
+        "tone": 77706,
+        "model": "JT45",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Plate",
+        "mix": 0.32,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 77706,
+          "model": "JT45",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Hall",
+          "mix": 0.28,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Gary Moore - Still Got the Blues / Parisienne Walkways",
+    "chain": [
+      {
+        "tone": 87914,
+        "model": "Drive-II",
+        "outGain": 0.5
+      },
+      {
+        "tone": 77706,
+        "model": "JT45",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Hall",
+        "mix": 0.32,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 87735,
+          "model": "JCM800",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.26,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Ozzy Osbourne / Randy Rhoads - Crazy Train / Mr. Crowley",
+    "chain": [
+      {
+        "tone": 89559,
+        "model": "LOW",
+        "outGain": 0.5
+      },
+      {
+        "tone": 87031,
+        "model": "1969 Marshall JMP",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.18,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 87031,
+          "model": "1969 Marshall JMP",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.18,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "George Benson - Breezin' / Affirmation",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89797,
+        "model": "WARM",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 89797,
+          "model": "WARM",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.24,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Grant Green - Idle Moments / Solid",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88775,
+        "model": "BFSR",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.2,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 88775,
+          "model": "BFSR",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.2,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "John Scofield - A Go Go / Hottentot",
+    "chain": [
+      {
+        "tone": 78883,
+        "model": "Crunch",
+        "outGain": 0.5
+      },
+      {
+        "tone": 70408,
+        "model": "AC30",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.22,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 70408,
+          "model": "AC30",
+          "outGain": 0.5
+        },
+        {
+          "tone": 69103,
+          "model": "LA-2A",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.22,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Queens of the Stone Age / Josh Homme - No One Knows / Little Sister",
+    "chain": [
+      {
+        "tone": 87914,
+        "model": "Drive-II",
+        "outGain": 0.5
+      },
+      {
+        "tone": 60033,
+        "model": "GBSN G200",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.12,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 72145,
+          "model": "SL68",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.15,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Tame Impala / Kevin Parker - Elephant / Feels Like We Only Go Backwards",
+    "chain": [
+      {
+        "tone": 74159,
+        "model": "BD-2",
+        "outGain": 0.5
+      },
+      {
+        "tone": 70408,
+        "model": "AC30",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Spring",
+        "mix": 0.26,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 89797,
+          "model": "CLEAN",
+          "outGain": 0.5
+        },
+        {
+          "tone": 69103,
+          "model": "LA-2A",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Spring",
+          "mix": 0.26,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Muse / Matthew Bellamy - Plug In Baby / Hysteria / Knights of Cydonia",
+    "chain": [
+      {
+        "tone": 87219,
+        "model": "Silicon",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89509,
+        "model": "DZL",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Plate",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 70408,
+          "model": "AC30",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.24,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Arctic Monkeys / Alex Turner - I Bet You Look Good on the Dancefloor / Brianstorm / Do I Wanna Know",
+    "chain": [
+      {
+        "tone": 78883,
+        "model": "Crunch",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89797,
+        "model": "CLEAN",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.18,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 70408,
+          "model": "AC30",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.18,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Radiohead / Jonny Greenwood - Paranoid Android / Creep / Just",
+    "chain": [
+      {
+        "tone": 89559,
+        "model": "AGRESSIVE",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89797,
+        "model": "CLEAN",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.22,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 53601,
+          "model": "VX 304",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Plate",
+          "mix": 0.22,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Oasis / Noel Gallagher - Supersonic / Live Forever / Wonderwall",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 82521,
+        "model": "VX TB30",
+        "outGain": 0.5
+      },
+      {
+        "tone": 79572,
+        "model": "Line 0",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Plate",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 78832,
+          "model": "v2",
+          "outGain": 0.5
+        },
+        {
+          "tone": 79572,
+          "model": "Line 0",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.24,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Weezer / Rivers Cuomo - Say It Ain't So / Buddy Holly / Hash Pipe",
+    "chain": [
+      {
+        "tone": 81803,
+        "model": "Mark IIC",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.18,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 87735,
+          "model": "JCM800",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.18,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Deftones / Stephen Carpenter - My Own Summer (Shove It) / Change (In the House of Flies)",
+    "chain": [
+      {
+        "tone": 84864,
+        "model": "Red",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.18,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 69206,
+          "model": "MBDR",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.18,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Slipknot / Jim Root & Mick Thomson - Psychosocial / Duality",
+    "chain": [
+      {
+        "tone": 88952,
+        "model": "Mid",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.1,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 84864,
+          "model": "Red",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.12,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Polyphia / Tim Henson & Scott LePage - Playing God / G.O.A.T.",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 65227,
+        "model": "Deluxe",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.26,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 89797,
+          "model": "CLEAN",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Plate",
+          "mix": 0.26,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Animals as Leaders / Tosin Abasi - CAFO / Physical Education",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 84864,
+        "model": "Red",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.14,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 81803,
+          "model": "Mark IIc+",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.14,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "The Smiths / Johnny Marr - This Charming Man / How Soon Is Now?",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89797,
+        "model": "CLEAN",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.25,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 10912,
+          "model": "Bright Off",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Plate",
+          "mix": 0.25,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "The Cure / Robert Smith - Just Like Heaven / A Forest / Pictures of You",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 10912,
+        "model": "Bright Off",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.35,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 53601,
+          "model": "VX 304",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Plate",
+          "mix": 0.35,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "My Bloody Valentine / Kevin Shields - Only Shallow / Soon / To Here Knows When",
+    "chain": [
+      {
+        "tone": 61106,
+        "model": "T5 S5",
+        "outGain": 0.5
+      },
+      {
+        "tone": 87735,
+        "model": "JCM800",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Cloud",
+        "mix": 0.4,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 82521,
+          "model": "VX TB30",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Cloud",
+          "mix": 0.4,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Dinosaur Jr. / J Mascis - Feel the Pain / Freak Scene",
+    "chain": [
+      {
+        "tone": 61106,
+        "model": "T5 S5",
+        "outGain": 0.5
+      },
+      {
+        "tone": 72145,
+        "model": "SL68",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.22,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 53037,
+          "model": "Bright Overdrive",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.22,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Yngwie Malmsteen - Far Beyond the Sun / Black Star",
+    "chain": [
+      {
+        "tone": 87264,
+        "model": "BOOST SET 5",
+        "outGain": 0.5
+      },
+      {
+        "tone": 72145,
+        "model": "SL68",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Hall",
+        "mix": 0.26,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 65578,
+          "model": "JM50LD",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Hall",
+          "mix": 0.26,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Steve Vai - For the Love of God",
+    "chain": [
+      {
+        "tone": 89559,
+        "model": "CLASSIC",
+        "outGain": 0.5
+      },
+      {
+        "tone": 87735,
+        "model": "JCM800",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.32,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 89805,
+          "model": "LEAD",
+          "outGain": 0.5
+        },
+        {
+          "tone": 69103,
+          "model": "LA-2A",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Plate",
+          "mix": 0.32,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Joe Satriani - Surfing with the Alien / Always with Me, Always with You",
+    "chain": [
+      {
+        "tone": 89559,
+        "model": "LOW",
+        "outGain": 0.5
+      },
+      {
+        "tone": 75346,
+        "model": "M6100",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Plate",
+        "mix": 0.28,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 72145,
+          "model": "SL68",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.28,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Dream Theater / John Petrucci - Pull Me Under / The Glass Prison",
+    "chain": [
+      {
+        "tone": 81803,
+        "model": "Mark IIC",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Hall",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 89805,
+          "model": "LEAD",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Hall",
+          "mix": 0.24,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Blink-182 / Tom DeLonge - All the Small Things / What's My Age Again? / Dammit",
+    "chain": [
+      {
+        "tone": 79103,
+        "model": "Orange Crunch",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.1,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 78832,
+          "model": "v2",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.1,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Alter Bridge / Creed / Mark Tremonti - Metalingus / Higher / My Sacrifice",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69206,
+        "model": "MBDR",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.15,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 84864,
+          "model": "Red",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.15,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Megadeth / Dave Mustaine & Marty Friedman - Holy Wars... The Punishment Due / Symphony of Destruction",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 87735,
+        "model": "JCM800",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.12,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 87031,
+          "model": "1969 Marshall JMP",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.12,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Ozzy Osbourne / Zakk Wylde - No More Tears / Miracle Man",
+    "chain": [
+      {
+        "tone": 87914,
+        "model": "Boost-I",
+        "outGain": 0.5
+      },
+      {
+        "tone": 87735,
+        "model": "JCM800",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.18,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 72145,
+          "model": "SL68",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.18,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Pantera / Dimebag Darrell - Cowboys from Hell / Walk / Cemetery Gates",
+    "chain": [
+      {
+        "tone": 89559,
+        "model": "AGRESSIVE",
+        "outGain": 0.5
+      },
+      {
+        "tone": 84864,
+        "model": "Red",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.12,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 81803,
+          "model": "Mark IIc+",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.12,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Tedeschi Trucks Band / Derek Trucks - Midnight in Harlem / Layla (Live)",
+    "chain": [
+      {
+        "tone": 88775,
+        "model": "BFSR",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Spring",
+        "mix": 0.28,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 89797,
+          "model": "WARM",
+          "outGain": 0.5
+        },
+        {
+          "tone": 69103,
+          "model": "LA-2A",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Spring",
+          "mix": 0.28,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "The Black Keys / Dan Auerbach - Lonely Boy / Gold on the Ceiling",
+    "chain": [
+      {
+        "tone": 61106,
+        "model": "T5 S5",
+        "outGain": 0.5
+      },
+      {
+        "tone": 54580,
+        "model": "SM57",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Spring",
+        "mix": 0.22,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 77706,
+          "model": "JT45",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Spring",
+          "mix": 0.22,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "The Strokes / Albert Hammond Jr. & Nick Valensi - Last Nite / Reptilia / Someday",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 65227,
+        "model": "Deluxe",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.15,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 89797,
+          "model": "CLEAN",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.15,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Gary Clark Jr. - Bright Lights / When My Train Pulls In",
+    "chain": [
+      {
+        "tone": 79454,
+        "model": "mid gain",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88775,
+        "model": "BFSR",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Spring",
+        "mix": 0.28,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 65227,
+          "model": "Deluxe",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Spring",
+          "mix": 0.28,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Mac DeMarco - Chamber of Reflection / Salad Days / Ode to Viceroy",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 10912,
+        "model": "Bright Off",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.3,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 69103,
+          "model": "LA-2A",
+          "outGain": 0.5
+        },
+        {
+          "tone": 89797,
+          "model": "CLEAN",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Plate",
+          "mix": 0.3,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "St. Vincent / Annie Clark - Los Ageless / Digital Witness / Cruel",
+    "chain": [
+      {
+        "tone": 61106,
+        "model": "T5 S5",
+        "outGain": 0.5
+      },
+      {
+        "tone": 65227,
+        "model": "Deluxe",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Hall",
+        "mix": 0.3,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 70408,
+          "model": "AC30",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Hall",
+          "mix": 0.3,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Rush / Alex Lifeson - Tom Sawyer / Limelight / The Spirit of Radio",
+    "chain": [
+      {
+        "tone": 72145,
+        "model": "SL68",
+        "outGain": 0.5
+      },
+      {
+        "tone": 53037,
+        "model": "Bright Overdrive",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Chamber",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 53037,
+          "model": "Bright Overdrive",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Chamber",
+          "mix": 0.24,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Soundgarden / Chris Cornell & Kim Thayil - Black Hole Sun / Spoonman / Outshined",
+    "chain": [
+      {
+        "tone": 79103,
+        "model": "Orange Crunch",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.22,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 87735,
+          "model": "JCM800",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.22,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Stone Temple Pilots / Dean DeLeo - Plush / Interstate Love Song / Vasoline",
+    "chain": [
+      {
+        "tone": 87735,
+        "model": "JCM800",
+        "outGain": 0.5
+      },
+      {
+        "tone": 82521,
+        "model": "VX TB30",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.2,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 82521,
+          "model": "VX TB30",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.2,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Robin Trower - Bridge of Sighs / Day of the Eagle",
+    "chain": [
+      {
+        "tone": 72145,
+        "model": "SL68",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Hall",
+        "mix": 0.28,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 65578,
+          "model": "JM50LD",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Hall",
+          "mix": 0.28,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Sublime / Bradley Nowell - Santeria / What I Got / Wrong Way",
+    "chain": [
+      {
+        "tone": 87914,
+        "model": "Drive-II",
+        "outGain": 0.5
+      },
+      {
+        "tone": 79103,
+        "model": "Orange Crunch",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Spring",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 65227,
+          "model": "Deluxe",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Spring",
+          "mix": 0.24,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Sum 41 / Deryck Whibley & Dave Baksh - Fat Lip / In Too Deep",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 87735,
+        "model": "JCM800",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.12,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 78832,
+          "model": "v2",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.12,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "The Darkness / Justin Hawkins & Dan Hawkins - I Believe in a Thing Called Love / Love Is Only a Feeling",
+    "chain": [
+      {
+        "tone": 72145,
+        "model": "SL68",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.18,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 65578,
+          "model": "JM50LD",
+          "outGain": 0.5
+        },
+        {
+          "tone": 69103,
+          "model": "LA-2A",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.18,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Joe Bonamassa - Sloe Gin / Ballamosa",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89805,
+        "model": "LEAD",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Plate",
+        "mix": 0.26,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 72145,
+          "model": "SL68",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.26,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Grateful Dead / Jerry Garcia - Touch of Grey / Dark Star / Scarlet Begonias",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89797,
+        "model": "CLEAN",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Spring",
+        "mix": 0.25,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 54580,
+          "model": "SM57",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Spring",
+          "mix": 0.25,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "Phish / Trey Anastasio - You Enjoy Myself / Chalk Dust Torture",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89805,
+        "model": "LEAD",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Hall",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 65227,
+          "model": "Deluxe",
+          "outGain": 0.5
+        },
+        {
+          "tone": 69103,
+          "model": "LA-2A",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Hall",
+          "mix": 0.24,
+          "outGain": 0.5
+        }
+      ],
+      "branchAfter": 0
+    }
+  },
+  {
+    "name": "David Gilmour - Shine On Clean",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 53037,
+        "model": "Noon",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Hall",
+        "mix": 0.32,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 89797,
+          "model": "CLEAN",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.3,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Jimi Hendrix - Little Wing Clean",
+    "chain": [
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5
+      },
+      {
+        "tone": 65578,
+        "model": "JM50LD",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Plate",
+        "mix": 0.25,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 84556,
+          "model": "Bassman",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Spring",
+          "mix": 0.28,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Slash - Appetite Rhythm Crunch",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 87735,
+        "model": "JCM800",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.18,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 72145,
+          "model": "SL68",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.18,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Kurt Cobain - In Bloom Chorus",
+    "chain": [
+      {
+        "tone": 89559,
+        "model": "CLASSIC",
+        "outGain": 0.5
+      },
+      {
+        "tone": 89797,
+        "model": "CLEAN",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.3,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 88775,
+          "model": "BFSR",
+          "outGain": 0.66
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.24,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Eddie Van Halen - 5150 High Gain Lead",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 84864,
+        "model": "Red",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Plate",
+        "mix": 0.26,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 72145,
+          "model": "SL68",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.18,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Jimmy Page - Since Ive Been Loving You",
+    "chain": [
+      {
+        "tone": 87914,
+        "model": "Drive-II",
+        "outGain": 0.5
+      },
+      {
+        "tone": 65578,
+        "model": "JM50LD",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 77706,
+          "model": "JT45",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.25,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "John Frusciante - Dani California Solo",
+    "chain": [
+      {
+        "tone": 89559,
+        "model": "CLASSIC",
+        "outGain": 0.5
+      },
+      {
+        "tone": 61106,
+        "model": "T5 S5",
+        "outGain": 0.5
+      },
+      {
+        "tone": 78832,
+        "model": "v2",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.24,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 1,
+      "right": [
+        {
+          "tone": 72145,
+          "model": "SL68",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.24,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "The Edge - Achtung Baby Drive",
+    "chain": [
+      {
+        "tone": 78883,
+        "model": "Crunch",
+        "outGain": 0.5
+      },
+      {
+        "tone": 70408,
+        "model": "AC30",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.3,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 89797,
+          "model": "CLEAN",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Hall",
+          "mix": 0.32,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Kirk Hammett - Enter Sandman Solo",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 81803,
+        "model": "Mark IIc+",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88473,
+        "model": "Plate",
+        "mix": 0.26,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 87735,
+          "model": "JCM800",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.18,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Dimebag Darrell - Walk Groove Rhythm",
+    "chain": [
+      {
+        "tone": 89559,
+        "model": "AGRESSIVE",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88775,
+        "model": "BFSR",
+        "outGain": 0.66
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.12,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 81803,
+          "model": "Mark IIc+",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "mix": 0.12,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "John Mayer - Slow Dancing Trio",
+    "chain": [
+      {
+        "tone": 87914,
+        "model": "Boost-I",
+        "outGain": 0.5
+      },
+      {
+        "tone": 79454,
+        "model": "mid gain",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "mix": 0.28,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 84556,
+          "model": "Bassman",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88038,
+          "model": "Spring",
+          "mix": 0.26,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Matt Bellamy - Hysteria Heavy Modern",
+    "chain": [
+      {
+        "tone": 78883,
+        "model": "Crunch",
+        "outGain": 0.5
+      },
+      {
+        "tone": 69206,
+        "model": "MBDR",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "mix": 0.18,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 70408,
+          "model": "AC30",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.2,
+          "outGain": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Carlos Santana - Europa Singing Lead",
+    "chain": [
+      {
+        "tone": 86314,
+        "model": "TS9",
+        "outGain": 0.5
+      },
+      {
+        "tone": 81803,
+        "model": "Mark IIc+",
+        "outGain": 0.5
+      },
+      {
+        "tone": 88038,
+        "model": "Hall",
+        "mix": 0.32,
+        "outGain": 0.5
+      }
+    ],
+    "stereo": {
+      "branchAfter": 0,
+      "right": [
+        {
+          "tone": 89797,
+          "model": "CLEAN",
+          "outGain": 0.5
+        },
+        {
+          "tone": 88473,
+          "model": "Plate",
+          "mix": 0.28,
+          "outGain": 0.5
+        }
+      ]
+    }
+  }
+]

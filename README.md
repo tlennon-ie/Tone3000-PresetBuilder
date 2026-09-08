@@ -8,6 +8,7 @@ The `.t3kpreset` file format was reverse-engineered from the plugin's
 [open-source code](https://github.com/tone-3000/tone3000-plugin) and is written byte-exact.
 
 ## Changelog
+- **186 Bundled Artist Presets (Mono & Stereo)**: Pre-built, verified presets for all 80 Equipboard artist profiles plus iconic tone variations, installable via `t3k.py install-templates --category artists`.
 - **Official TONE3000 API v1 & OAuth 2.0**: Migrated from legacy scraping to official REST API v1 with OAuth 2.0 PKCE browser login and Secret Key support.
 - **Offline Artist Rig Memory & Web Search Hybrid**: Added persistent artist hardware database (`t3k.py rig`) with continuous memory growth and Equipboard integration.
 
@@ -22,7 +23,8 @@ skill/tone3000-preset-builder/         the Claude skill
   scripts/t3k.py                       the CLI (search, build, verify, rig, install-templates)
   presets/standard/                    ~39 recipes, pre-built + verified (mic'd amps, mono+stereo)
   presets/di-reamp/                    8 recipes, pre-built + verified (preamp-only, no cab/mic)
-examples/                              source recipes (library.json, rolling-stone-top-solos.json, etc.)
+  presets/artists/                     186 presets, pre-built + verified (80+ artists, mono+stereo)
+examples/                              source recipes (library.json, artist-library.json, etc.)
 ```
 The `presets/` folders ship real, working `.t3kpreset` files in the repo (not just recipe JSON) so
 the skill can install them instantly, offline, without hitting the TONE3000 API at all.
@@ -97,12 +99,13 @@ search tone3000.com for any missing captures, build, verify, and write the files
 ```bash
 cd skill/tone3000-preset-builder
 python scripts/t3k.py rig "prince"                          # query offline artist rig memory
-python scripts/t3k.py rig list                              # list all 40+ artists in offline memory
+python scripts/t3k.py rig list                              # list all 80+ artists in offline memory
 python scripts/t3k.py login                                 # authenticate via official OAuth 2.0 PKCE
 python scripts/t3k.py whoami                                # show authenticated user info
 python scripts/t3k.py presets-dir                           # where presets go on this machine
-python scripts/t3k.py install-templates --category all      # drop in every bundled preset, offline
-python scripts/t3k.py install-templates --category di-reamp
+python scripts/t3k.py install-templates --category all      # drop in every bundled preset (standard, di-reamp, artists)
+python scripts/t3k.py install-templates --category artists  # drop in all 186 pre-built artist presets
+python scripts/t3k.py install-templates --category di-reamp # drop in preamp-only DI presets
 python scripts/t3k.py search "tube screamer" --gear pedal
 python scripts/t3k.py tone 86314                             # models, tags, description
 python scripts/t3k.py build ../../examples/rolling-stone-top-solos.json --copy-to ./out
