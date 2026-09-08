@@ -1,0 +1,70 @@
+<svg width="100%" viewBox="0 0 760 1030" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>How the TONE3000 preset builder skill works</title>
+<desc>A user prompt naming an artist or song is checked against stored artist memory. If the rig is already known, it is reused. If not, the skill researches the artist's real gear online. Both paths converge into a live search of the TONE3000 capture catalog, which is used to build a pedal, amp, cab and reverb chain. The finished chain is verified and written as a preset file, then the artist's gear is saved back into memory for next time.</desc>
+<defs>
+<marker id="pparrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+
+<rect x="0" y="0" width="760" height="1030" rx="20" fill="#15130F" stroke="#3A342B" stroke-width="1"/>
+
+<text x="380" y="54" text-anchor="middle" fill="#F2EDE0" font-size="24" font-weight="700" letter-spacing="2" font-family="sans-serif">TONE3000 PRESET BUILDER</text>
+<text x="380" y="80" text-anchor="middle" fill="#9C9186" font-size="13" font-family="sans-serif">prompt to preset, built from real gear</text>
+<line x1="230" y1="100" x2="530" y2="100" stroke="#3A342B" stroke-width="1"/>
+
+<path d="M158 160 L144 180 L154 180 L140 202 L168 176 L156 176 Z" fill="#BA7517" opacity="0.85"/>
+
+<rect x="230" y="150" width="300" height="56" rx="10" fill="#444441" stroke="#B4B2A9" stroke-width="1.2"/>
+<text x="380" y="168" text-anchor="middle" dominant-baseline="central" fill="#D3D1C7" font-size="14" font-weight="600" font-family="sans-serif">Prompt</text>
+<text x="380" y="186" text-anchor="middle" dominant-baseline="central" fill="#B4B2A9" font-size="12" font-family="sans-serif">an artist, song, or vibe</text>
+
+<line x1="380" y1="210" x2="380" y2="267" stroke="#9C7A3D" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#pparrow)"><animate attributeName="stroke-dashoffset" values="22;0" dur="1s" repeatCount="indefinite"/></line>
+
+<rect x="230" y="276" width="300" height="56" rx="10" fill="#3C3489" stroke="#AFA9EC" stroke-width="1.2"/>
+<text x="380" y="294" text-anchor="middle" dominant-baseline="central" fill="#CECBF6" font-size="14" font-weight="600" font-family="sans-serif">Check artist memory</text>
+<text x="380" y="312" text-anchor="middle" dominant-baseline="central" fill="#AFA9EC" font-size="12" font-family="sans-serif">known rigs from past builds</text>
+
+<line x1="380" y1="336" x2="240" y2="394" stroke="#9C7A3D" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#pparrow)"><animate attributeName="stroke-dashoffset" values="22;0" dur="1s" repeatCount="indefinite"/></line>
+<line x1="380" y1="336" x2="540" y2="394" stroke="#9C7A3D" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#pparrow)"><animate attributeName="stroke-dashoffset" values="22;0" dur="1s" repeatCount="indefinite"/></line>
+
+<rect x="100" y="402" width="280" height="56" rx="10" fill="#085041" stroke="#5DCAA5" stroke-width="1.2"/>
+<text x="240" y="420" text-anchor="middle" dominant-baseline="central" fill="#9FE1CB" font-size="14" font-weight="600" font-family="sans-serif">Rig already known</text>
+<text x="240" y="438" text-anchor="middle" dominant-baseline="central" fill="#5DCAA5" font-size="12" font-family="sans-serif">reuse the stored gear</text>
+
+<rect x="400" y="402" width="280" height="56" rx="10" fill="#712B13" stroke="#F0997B" stroke-width="1.2"/>
+<text x="540" y="420" text-anchor="middle" dominant-baseline="central" fill="#F5C4B3" font-size="14" font-weight="600" font-family="sans-serif">Not in memory yet</text>
+<text x="540" y="438" text-anchor="middle" dominant-baseline="central" fill="#F0997B" font-size="12" font-family="sans-serif">search equipboard and web</text>
+
+<line x1="240" y1="462" x2="372" y2="522" stroke="#9C7A3D" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#pparrow)"><animate attributeName="stroke-dashoffset" values="22;0" dur="1s" repeatCount="indefinite"/></line>
+<line x1="540" y1="462" x2="388" y2="522" stroke="#9C7A3D" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#pparrow)"><animate attributeName="stroke-dashoffset" values="22;0" dur="1s" repeatCount="indefinite"/></line>
+
+<rect x="230" y="528" width="300" height="56" rx="10" fill="#0C447C" stroke="#85B7EB" stroke-width="1.2"/>
+<text x="380" y="546" text-anchor="middle" dominant-baseline="central" fill="#B5D4F4" font-size="14" font-weight="600" font-family="sans-serif">Search Tone3000 catalog</text>
+<text x="380" y="564" text-anchor="middle" dominant-baseline="central" fill="#85B7EB" font-size="12" font-family="sans-serif">find and verify real captures</text>
+
+<polygon points="598,530 582,554 592,554 578,580 606,552 594,552" fill="#EF9F27" opacity="0.85"/>
+
+<line x1="380" y1="588" x2="380" y2="646" stroke="#9C7A3D" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#pparrow)"><animate attributeName="stroke-dashoffset" values="22;0" dur="1s" repeatCount="indefinite"/></line>
+
+<rect x="215" y="639" width="330" height="86" rx="16" fill="#EF9F27" opacity="0.18"><animate attributeName="opacity" values="0.1;0.34;0.1" dur="2s" repeatCount="indefinite"/></rect>
+
+<path d="M152 702 Q146 684 156 688 Q154 674 164 680 Q166 666 172 676 Q178 688 168 702 Z" fill="#E24B4A" opacity="0.95"><animate attributeName="opacity" values="1;0.5;1" dur="0.6s" repeatCount="indefinite"/></path>
+<path d="M580 702 Q574 684 584 688 Q582 674 592 680 Q594 666 600 676 Q606 688 596 702 Z" fill="#EF9F27" opacity="0.95"><animate attributeName="opacity" values="0.55;1;0.55" dur="0.8s" begin="0.15s" repeatCount="indefinite"/></path>
+
+<rect x="230" y="654" width="300" height="56" rx="10" fill="#633806" stroke="#EF9F27" stroke-width="1.4"/>
+<text x="380" y="672" text-anchor="middle" dominant-baseline="central" fill="#FAC775" font-size="14" font-weight="600" font-family="sans-serif">Build the signal chain</text>
+<text x="380" y="690" text-anchor="middle" dominant-baseline="central" fill="#EF9F27" font-size="12" font-family="sans-serif">pedal into amp into cab</text>
+
+<line x1="380" y1="714" x2="380" y2="772" stroke="#9C7A3D" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#pparrow)"><animate attributeName="stroke-dashoffset" values="22;0" dur="1s" repeatCount="indefinite"/></line>
+
+<rect x="230" y="780" width="300" height="56" rx="10" fill="#27500A" stroke="#97C459" stroke-width="1.2"/>
+<text x="380" y="798" text-anchor="middle" dominant-baseline="central" fill="#C0DD97" font-size="14" font-weight="600" font-family="sans-serif">Verify and write preset</text>
+<text x="380" y="816" text-anchor="middle" dominant-baseline="central" fill="#97C459" font-size="12" font-family="sans-serif">checked, then saved to disk</text>
+
+<line x1="380" y1="840" x2="380" y2="898" stroke="#9C7A3D" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#pparrow)"><animate attributeName="stroke-dashoffset" values="22;0" dur="1s" repeatCount="indefinite"/></line>
+
+<rect x="230" y="906" width="300" height="56" rx="10" fill="#3C3489" stroke="#AFA9EC" stroke-width="1.2"/>
+<text x="380" y="924" text-anchor="middle" dominant-baseline="central" fill="#CECBF6" font-size="14" font-weight="600" font-family="sans-serif">Update artist memory</text>
+<text x="380" y="942" text-anchor="middle" dominant-baseline="central" fill="#AFA9EC" font-size="12" font-family="sans-serif">so next time is instant</text>
+
+<text x="380" y="990" text-anchor="middle" fill="#7A7166" font-size="12" font-family="sans-serif">&#8635; feeds back into the memory check above</text>
+</svg>

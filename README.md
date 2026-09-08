@@ -12,6 +12,8 @@ The `.t3kpreset` file format was reverse-engineered from the plugin's
 - **Official TONE3000 API v1 & OAuth 2.0**: Migrated from legacy scraping to official REST API v1 with OAuth 2.0 PKCE browser login and Secret Key support.
 - **Offline Artist Rig Memory & Web Search Hybrid**: Added persistent artist hardware database (`t3k.py rig`) with continuous memory growth and Equipboard integration.
 
+<p align="center"><img src="docs/pipeline.svg" alt="How the TONE3000 preset builder pipeline works, from prompt to installed preset" width="680"></p>
+
 ## What's in here
 
 ```
