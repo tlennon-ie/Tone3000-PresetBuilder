@@ -1,0 +1,99 @@
+﻿[
+    {
+        "name":  "Hendrix Boutique DI - Fuzz Face into Two-Rock (no cab, for real 1x12 Greenback)",
+        "chain":  [
+                      {
+                          "tone":  1531
+                      },
+                      {
+                          "tone":  4658
+                      }
+                  ]
+    },
+    {
+        "name":  "Stoner Doom Fuzz DI - RAT into Diezel VH4 (no cab, for real 2x12 V30-Creamback)",
+        "chain":  [
+                      {
+                          "tone":  45294,
+                          "model":  "DIST-1100_FILTER-1300"
+                      },
+                      {
+                          "tone":  53749,
+                          "model":  "CH 2 Crunch 1"
+                      }
+                  ]
+    },
+    {
+        "name":  "Hendrix Boutique DI 1 - Fuzz Face into Two-Rock Clean (feeds real cab)",
+        "chain":  [
+                      {
+                          "tone":  1531
+                      },
+                      {
+                          "tone":  4658
+                      }
+                  ]
+    },
+    {
+        "name":  "Hendrix Boutique DI 2 - Germanium Fuzz into Carr Mercury (feeds real cab)",
+        "chain":  [
+                      {
+                          "tone":  46529,
+                          "model":  "\\[4\\]"
+                      },
+                      {
+                          "tone":  1843
+                      }
+                  ]
+    },
+    {
+        "name":  "Stoner Doom Fuzz DI 1 - RAT into Diezel VH4 Crunch (feeds real cab)",
+        "chain":  [
+                      {
+                          "tone":  45294,
+                          "model":  "DIST-1100_FILTER-1300"
+                      },
+                      {
+                          "tone":  53749,
+                          "model":  "CH 2 Crunch 1"
+                      }
+                  ]
+    },
+    {
+        "name":  "Stoner Doom Fuzz DI 2 - Big Muff into Victory Kraken (feeds real cab)",
+        "chain":  [
+                      {
+                          "tone":  61106,
+                          "model":  "T7 S7"
+                      },
+                      {
+                          "tone":  77541,
+                          "model":  "CH1 G7|CH2 G7"
+                      }
+                  ]
+    },
+    {
+        "name":  "Vintage Fuzz DI - Fuzz Face into Bogner Ecstasy Crunch (feeds real cab)",
+        "chain":  [
+                      {
+                          "tone":  1531
+                      },
+                      {
+                          "tone":  87448
+                      }
+                  ]
+    },
+    {
+        "name":  "Boutique Rock Fuzz DI - RAT into Friedman BE-100 (feeds real cab)",
+        "chain":  [
+                      {
+                          "tone":  45294,
+                          "model":  "DIST-0900_FILTER-1200"
+                      },
+                      {
+                          "tone":  76690,
+                          "model":  "BE Channel"
+                      }
+                  ]
+    }
+]

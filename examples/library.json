@@ -1,0 +1,1189 @@
+﻿[
+    {
+        "name":  "GNR - Sweet Child O Mine (Slash)",
+        "chain":  [
+                      {
+                          "tone":  86750,
+                          "model":  "4:1 Ratio, Medium"
+                      },
+                      {
+                          "tone":  86314,
+                          "model":  "D5-T6-L5"
+                      },
+                      {
+                          "tone":  87735
+                      },
+                      {
+                          "tone":  79572,
+                          "model":  "Line 0"
+                      },
+                      {
+                          "tone":  88473,
+                          "model":  "Just Plate",
+                          "mix":  0.3
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  2,
+                       "right":  [
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Plate",
+                                         "mix":  0.3
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Nirvana - Smells Like Teen Spirit",
+        "chain":  [
+                      {
+                          "tone":  89559,
+                          "model":  "CLASSIC"
+                      },
+                      {
+                          "tone":  88775
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Room",
+                          "mix":  0.28
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  65844,
+                                         "model":  "Twin Reverb - STC 4038"
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Room",
+                                         "mix":  0.28
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Led Zeppelin - Whole Lotta Love",
+        "chain":  [
+                      {
+                          "tone":  86750,
+                          "model":  "4:1 Ratio, Medium"
+                      },
+                      {
+                          "tone":  79454,
+                          "model":  "mid gain"
+                      },
+                      {
+                          "tone":  65578
+                      },
+                      {
+                          "tone":  79572,
+                          "model":  "Line 0"
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_medium1",
+                          "mix":  0.25
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  2,
+                       "right":  [
+                                     {
+                                         "tone":  88473,
+                                         "model":  "Large Chamber",
+                                         "mix":  0.33
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Hendrix - Purple Haze",
+        "chain":  [
+                      {
+                          "tone":  87219,
+                          "model":  "Silicon Fuzz Face"
+                      },
+                      {
+                          "tone":  72145
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Spring",
+                          "mix":  0.32
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  1,
+                       "right":  [
+                                     {
+                                         "tone":  87851,
+                                         "model":  "room_large1",
+                                         "mix":  0.3
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Metallica - Master of Puppets",
+        "chain":  [
+                      {
+                          "tone":  86314,
+                          "model":  "D8-T4-L5"
+                      },
+                      {
+                          "tone":  81803
+                      },
+                      {
+                          "tone":  79572,
+                          "model":  "Line 0"
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_small1",
+                          "mix":  0.15
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  69206
+                                     },
+                                     {
+                                         "tone":  87851,
+                                         "model":  "room_small1",
+                                         "mix":  0.15
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Pink Floyd - Comfortably Numb",
+        "chain":  [
+                      {
+                          "tone":  61106,
+                          "model":  "T5 S5"
+                      },
+                      {
+                          "tone":  53037,
+                          "model":  "Bright Overdrive - BLEND #1"
+                      },
+                      {
+                          "tone":  88473,
+                          "model":  "Large Chamber",
+                          "mix":  0.33
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  1,
+                       "right":  [
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Hall",
+                                         "mix":  0.35
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Black Sabbath - Paranoid",
+        "chain":  [
+                      {
+                          "tone":  31234,
+                          "model":  "V7_T5"
+                      },
+                      {
+                          "tone":  83324,
+                          "model":  "Iommy 2"
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_medium1",
+                          "mix":  0.25
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  1,
+                       "right":  [
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Room",
+                                         "mix":  0.28
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Van Halen - Eruption",
+        "chain":  [
+                      {
+                          "tone":  89490
+                      },
+                      {
+                          "tone":  84558,
+                          "model":  "WetDry",
+                          "mix":  0.35
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Hall",
+                                         "mix":  0.35
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Oasis - Wonderwall",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  79454,
+                          "model":  "mid gain"
+                      },
+                      {
+                          "tone":  82521
+                      },
+                      {
+                          "tone":  79572,
+                          "model":  "Line 0"
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_plate_d",
+                          "mix":  0.3
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  1,
+                       "right":  [
+                                     {
+                                         "tone":  78832,
+                                         "model":  "v2"
+                                     },
+                                     {
+                                         "tone":  87851,
+                                         "model":  "room_plate_d",
+                                         "mix":  0.3
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "RHCP - Under the Bridge",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  65227
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Spring",
+                          "mix":  0.32
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  1,
+                       "right":  [
+                                     {
+                                         "tone":  87851,
+                                         "model":  "hall_b",
+                                         "mix":  0.32
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Green Day - Basket Case",
+        "chain":  [
+                      {
+                          "tone":  86750,
+                          "model":  "8:1 Ratio, Fast"
+                      },
+                      {
+                          "tone":  87914,
+                          "model":  "Boost-I$"
+                      },
+                      {
+                          "tone":  78832,
+                          "model":  "v2"
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_small1",
+                          "mix":  0.15
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  1,
+                       "right":  [
+                                     {
+                                         "tone":  79103,
+                                         "model":  "Orange Crunch"
+                                     },
+                                     {
+                                         "tone":  87851,
+                                         "model":  "room_small1",
+                                         "mix":  0.15
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "AC-DC - Back in Black",
+        "chain":  [
+                      {
+                          "tone":  80875,
+                          "model":  "Driven"
+                      },
+                      {
+                          "tone":  75087,
+                          "model":  "0\\.50in 0\\.0in SA73"
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_small1",
+                          "mix":  0.15
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  82871,
+                                         "model":  "69Mars412"
+                                     },
+                                     {
+                                         "tone":  87851,
+                                         "model":  "room_small1",
+                                         "mix":  0.15
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Smashing Pumpkins - Cherub Rock",
+        "chain":  [
+                      {
+                          "tone":  61106,
+                          "model":  "T7 S7"
+                      },
+                      {
+                          "tone":  59102
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Room",
+                          "mix":  0.28
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  46269,
+                                         "model":  "\\[AMP\\] SLO100-OVD The King - SM57"
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Room",
+                                         "mix":  0.28
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Pearl Jam - Alive",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  79454,
+                          "model":  "high gain"
+                      },
+                      {
+                          "tone":  84556
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Hall",
+                          "mix":  0.35
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  1,
+                       "right":  [
+                                     {
+                                         "tone":  80875,
+                                         "model":  "Driven"
+                                     },
+                                     {
+                                         "tone":  75087,
+                                         "model":  "0\\.50in 0\\.0in SA73"
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Hall",
+                                         "mix":  0.35
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Soundgarden - Black Hole Sun",
+        "chain":  [
+                      {
+                          "tone":  10912,
+                          "model":  "Bright Off - SM57 \u0026 Royer"
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Cloud",
+                          "mix":  0.35
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Plate",
+                                         "mix":  0.3
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Foo Fighters - Everlong",
+        "chain":  [
+                      {
+                          "tone":  87914,
+                          "model":  "Drive-II$"
+                      },
+                      {
+                          "tone":  79103,
+                          "model":  "Orange Crunch"
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Room",
+                          "mix":  0.28
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  70408
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Room",
+                                         "mix":  0.28
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Radiohead - Creep",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  89797,
+                          "model":  "CLEAN"
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Spring",
+                          "mix":  0.32
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  53601
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Spring",
+                                         "mix":  0.32
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Coldplay - Yellow",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  79454,
+                          "model":  "mid gain"
+                      },
+                      {
+                          "tone":  70408
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Hall",
+                          "mix":  0.35
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  1,
+                       "right":  [
+                                     {
+                                         "tone":  89797,
+                                         "model":  "WARM"
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Hall",
+                                         "mix":  0.35
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "U2 - Where the Streets Have No Name",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  70408
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Shimmer",
+                          "mix":  0.4
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  89797,
+                                         "model":  "BRIGHT"
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Cloud",
+                                         "mix":  0.35
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Pixies - Where Is My Mind",
+        "chain":  [
+                      {
+                          "tone":  10912,
+                          "model":  "Bright On, SM57$"
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Spring",
+                          "mix":  0.32
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  51649,
+                                         "model":  "NEW VERSION.*No Room"
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Room",
+                                         "mix":  0.28
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "The Killers - Mr Brightside",
+        "chain":  [
+                      {
+                          "tone":  87914,
+                          "model":  "Boost-I$"
+                      },
+                      {
+                          "tone":  88952,
+                          "model":  "Mid Gain"
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Room",
+                          "mix":  0.28
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  87735
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Room",
+                                         "mix":  0.28
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Jimmy Eat World - The Middle",
+        "chain":  [
+                      {
+                          "tone":  78883,
+                          "model":  "Crunch"
+                      },
+                      {
+                          "tone":  88952,
+                          "model":  "High Gain"
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_small1",
+                          "mix":  0.15
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  78832,
+                                         "model":  "v2"
+                                     },
+                                     {
+                                         "tone":  87851,
+                                         "model":  "room_small1",
+                                         "mix":  0.15
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Feeder - Buck Rogers",
+        "chain":  [
+                      {
+                          "tone":  87914,
+                          "model":  "Drive-II$"
+                      },
+                      {
+                          "tone":  87735
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Room",
+                          "mix":  0.28
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  88952,
+                                         "model":  "High Gain"
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Room",
+                                         "mix":  0.28
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Creed-Seether - Higher (Post-Grunge)",
+        "chain":  [
+                      {
+                          "tone":  84864,
+                          "model":  "Red"
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_small1",
+                          "mix":  0.15
+                      }
+                  ],
+        "stereo":  {
+                       "right":  [
+                                     {
+                                         "tone":  69206
+                                     },
+                                     {
+                                         "tone":  87851,
+                                         "model":  "room_small1",
+                                         "mix":  0.15
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Limp Bizkit - Break Stuff",
+        "chain":  [
+                      {
+                          "tone":  69206
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_small1",
+                          "mix":  0.15
+                      }
+                  ],
+        "stereo":  {
+                       "right":  [
+                                     {
+                                         "tone":  84864,
+                                         "model":  "Green"
+                                     },
+                                     {
+                                         "tone":  87851,
+                                         "model":  "room_small1",
+                                         "mix":  0.15
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Papa Roach - Last Resort",
+        "chain":  [
+                      {
+                          "tone":  84864,
+                          "model":  "Green"
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_small1",
+                          "mix":  0.15
+                      }
+                  ],
+        "stereo":  {
+                       "right":  [
+                                     {
+                                         "tone":  79103,
+                                         "model":  "Alone I Stand"
+                                     },
+                                     {
+                                         "tone":  87851,
+                                         "model":  "room_small1",
+                                         "mix":  0.15
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Eagles - Hotel California",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  79454,
+                          "model":  "mid gain"
+                      },
+                      {
+                          "tone":  89797,
+                          "model":  "WARM"
+                      },
+                      {
+                          "tone":  88473,
+                          "model":  "Just Plate",
+                          "mix":  0.3
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  1,
+                       "right":  [
+                                     {
+                                         "tone":  65227
+                                     },
+                                     {
+                                         "tone":  88473,
+                                         "model":  "Just Plate",
+                                         "mix":  0.3
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "SRV - Pride and Joy",
+        "chain":  [
+                      {
+                          "tone":  86314,
+                          "model":  "D5-T6-L5"
+                      },
+                      {
+                          "tone":  88775
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Spring",
+                          "mix":  0.32
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  89797,
+                                         "model":  "WARM"
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Spring",
+                                         "mix":  0.32
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Clapton - Beano Bluesbreaker",
+        "chain":  [
+                      {
+                          "tone":  86750,
+                          "model":  "4:1 Ratio, Medium"
+                      },
+                      {
+                          "tone":  77706
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_medium1",
+                          "mix":  0.25
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  84556
+                                     },
+                                     {
+                                         "tone":  87851,
+                                         "model":  "room_medium1",
+                                         "mix":  0.25
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Queen - Brian May Treble Booster",
+        "chain":  [
+                      {
+                          "tone":  45843,
+                          "model":  "rangemaster1500"
+                      },
+                      {
+                          "tone":  53601
+                      },
+                      {
+                          "tone":  88473,
+                          "model":  "Wave NuHall",
+                          "mix":  0.3
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  82521
+                                     },
+                                     {
+                                         "tone":  88473,
+                                         "model":  "Large Chamber",
+                                         "mix":  0.33
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Tool - Schism",
+        "chain":  [
+                      {
+                          "tone":  88012,
+                          "model":  "BLEND 2"
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_medium1",
+                          "mix":  0.25
+                      }
+                  ],
+        "stereo":  {
+                       "right":  [
+                                     {
+                                         "tone":  89509
+                                     },
+                                     {
+                                         "tone":  87851,
+                                         "model":  "room_medium1",
+                                         "mix":  0.25
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Dire Straits - Sultans of Swing",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  51649,
+                          "model":  "NEW VERSION.*No Room"
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Plate",
+                          "mix":  0.3
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  89797,
+                                         "model":  "CLEAN"
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Plate",
+                                         "mix":  0.3
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Studio Clean Platform (JC-120 + LA-2A)",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  10912,
+                          "model":  "Bright Off - SM57 \u0026 Royer"
+                      },
+                      {
+                          "tone":  88473,
+                          "model":  "Just Plate",
+                          "mix":  0.3
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  51649,
+                                         "model":  "NEW VERSION.*No Room"
+                                     },
+                                     {
+                                         "tone":  88473,
+                                         "model":  "Just Plate",
+                                         "mix":  0.3
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Modern Metal (5150 + V30 4x12)",
+        "chain":  [
+                      {
+                          "tone":  86314,
+                          "model":  "D8-T4-L5"
+                      },
+                      {
+                          "tone":  79103,
+                          "model":  "Molten Red"
+                      },
+                      {
+                          "tone":  87851,
+                          "model":  "room_small1",
+                          "mix":  0.15
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  84864,
+                                         "model":  "Red"
+                                     },
+                                     {
+                                         "tone":  87851,
+                                         "model":  "room_small1",
+                                         "mix":  0.15
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Wes Montgomery - Round Midnight Warmth",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  56824
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Room",
+                          "mix":  0.2
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  69174
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Room",
+                                         "mix":  0.2
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Pat Metheny - Bright and Wide (no chorus)",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  10912,
+                          "model":  "Bright On, SM57$"
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Hall",
+                          "mix":  0.4
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  89797,
+                                         "model":  "CLEAN"
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Hall",
+                                         "mix":  0.4
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "Grant Green - Idle Moments Clean",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  65227
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Spring",
+                          "mix":  0.25
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  69174
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Spring",
+                                         "mix":  0.25
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "George Benson - Breezin Warmth",
+        "chain":  [
+                      {
+                          "tone":  69103
+                      },
+                      {
+                          "tone":  51649,
+                          "model":  "NEW VERSION.*No Room"
+                      },
+                      {
+                          "tone":  88473,
+                          "model":  "Just Plate",
+                          "mix":  0.3
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  56824
+                                     },
+                                     {
+                                         "tone":  88473,
+                                         "model":  "Just Plate",
+                                         "mix":  0.3
+                                     }
+                                 ]
+                   }
+    },
+    {
+        "name":  "John Scofield - Grimy Blue Note Grease",
+        "chain":  [
+                      {
+                          "tone":  12505
+                      },
+                      {
+                          "tone":  6237,
+                          "model":  "v3_t1_b3_p5_SM57$"
+                      },
+                      {
+                          "tone":  88038,
+                          "model":  "Room",
+                          "mix":  0.2
+                      }
+                  ],
+        "stereo":  {
+                       "branchAfter":  0,
+                       "right":  [
+                                     {
+                                         "tone":  89797,
+                                         "model":  "WARM"
+                                     },
+                                     {
+                                         "tone":  88038,
+                                         "model":  "Room",
+                                         "mix":  0.2
+                                     }
+                                 ]
+                   }
+    }
+]

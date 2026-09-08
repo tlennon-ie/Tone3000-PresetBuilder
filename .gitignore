@@ -1,0 +1,7 @@
+out/
+shareable-packs/
+__pycache__/
+*.pyc
+.DS_Store
+# Note: *.t3kpreset is intentionally NOT ignored here — the bundled preset
+# templates under skill/tone3000-preset-builder/presets/ are shipped in the repo.
