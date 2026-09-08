@@ -1,0 +1,45 @@
+{
+  "name": "Steely Dan - Kid Charlemagne",
+  "chain": [
+    {
+      "tone": 54580,
+      "model": "SM57 CAP EDGE - T 6, I 11, M 12",
+      "outGain": 0.5,
+      "mix": 1.0
+    },
+    {
+      "tone": 69103,
+      "model": "LA-2A Classic",
+      "outGain": 0.5,
+      "mix": 1.0
+    },
+    {
+      "tone": 88038,
+      "model": "Room",
+      "outGain": 0.5,
+      "mix": 0.22
+    }
+  ],
+  "stereo": {
+    "right": [
+      {
+        "tone": 54580,
+        "model": "MD 421 MIDDLE - T 6, I 11, M 12",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A Classic",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "outGain": 0.5,
+        "mix": 0.22
+      }
+    ]
+  }
+}

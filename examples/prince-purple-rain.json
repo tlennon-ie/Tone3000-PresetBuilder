@@ -1,0 +1,57 @@
+{
+  "name": "Prince - Purple Rain",
+  "chain": [
+    {
+      "tone": 89559,
+      "model": "CLASSIC",
+      "outGain": 0.5,
+      "mix": 1.0
+    },
+    {
+      "tone": 89805,
+      "model": "LEAD",
+      "outGain": 0.5,
+      "mix": 1.0
+    },
+    {
+      "tone": 69103,
+      "model": "LA-2A",
+      "outGain": 0.5,
+      "mix": 1.0
+    },
+    {
+      "tone": 88038,
+      "model": "Plate",
+      "outGain": 0.5,
+      "mix": 0.32
+    }
+  ],
+  "stereo": {
+    "right": [
+      {
+        "tone": 89559,
+        "model": "CLASSIC",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 89805,
+        "model": "RHYTHM",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "outGain": 0.5,
+        "mix": 0.32
+      }
+    ]
+  }
+}

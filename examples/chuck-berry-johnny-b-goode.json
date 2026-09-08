@@ -1,0 +1,45 @@
+{
+  "name": "Chuck Berry - Johnny B Goode",
+  "chain": [
+    {
+      "tone": 60033,
+      "model": "GBSN G200",
+      "outGain": 0.5,
+      "mix": 1.0
+    },
+    {
+      "tone": 65088,
+      "model": "Echo Fix",
+      "outGain": 0.5,
+      "mix": 0.35
+    },
+    {
+      "tone": 88038,
+      "model": "Room",
+      "outGain": 0.5,
+      "mix": 0.18
+    }
+  ],
+  "stereo": {
+    "right": [
+      {
+        "tone": 84556,
+        "model": "Clapton's Bassman",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 65088,
+        "model": "Echo Fix",
+        "outGain": 0.5,
+        "mix": 0.35
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "outGain": 0.5,
+        "mix": 0.18
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Deep Purple - Highway Star",
+  "chain": [
+    {
+      "tone": 87264,
+      "model": "BOOST SET 5",
+      "outGain": 0.5,
+      "mix": 1.0
+    },
+    {
+      "tone": 51310,
+      "model": "MRSH MJR",
+      "outGain": 0.5,
+      "mix": 1.0
+    },
+    {
+      "tone": 88038,
+      "model": "Room",
+      "outGain": 0.5,
+      "mix": 0.2
+    }
+  ],
+  "stereo": {
+    "right": [
+      {
+        "tone": 87264,
+        "model": "BOOST SET 5",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 72145,
+        "model": "SL68",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "outGain": 0.5,
+        "mix": 0.2
+      }
+    ]
+  }
+}

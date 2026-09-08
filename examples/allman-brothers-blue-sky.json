@@ -1,0 +1,45 @@
+{
+  "name": "Allman Brothers - Blue Sky",
+  "chain": [
+    {
+      "tone": 65578,
+      "model": "JM50LD",
+      "outGain": 0.5,
+      "mix": 1.0
+    },
+    {
+      "tone": 69103,
+      "model": "LA-2A",
+      "outGain": 0.5,
+      "mix": 1.0
+    },
+    {
+      "tone": 88038,
+      "model": "Room",
+      "outGain": 0.5,
+      "mix": 0.22
+    }
+  ],
+  "stereo": {
+    "right": [
+      {
+        "tone": 86687,
+        "model": "76 Mars 50 JMP J 5 M76",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "outGain": 0.5,
+        "mix": 0.22
+      }
+    ]
+  }
+}

@@ -1,0 +1,284 @@
+[
+  {
+    "name": "Steely Dan - Kid Charlemagne",
+    "chain": [
+      {
+        "tone": 54580,
+        "model": "SM57 CAP EDGE - T 6, I 11, M 12",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A Classic",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "outGain": 0.5,
+        "mix": 0.22
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 54580,
+          "model": "MD 421 MIDDLE - T 6, I 11, M 12",
+          "outGain": 0.5,
+          "mix": 1.0
+        },
+        {
+          "tone": 69103,
+          "model": "LA-2A Classic",
+          "outGain": 0.5,
+          "mix": 1.0
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "outGain": 0.5,
+          "mix": 0.22
+        }
+      ]
+    }
+  },
+  {
+    "name": "Prince - Purple Rain",
+    "chain": [
+      {
+        "tone": 89559,
+        "model": "CLASSIC",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 89805,
+        "model": "LEAD",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 88038,
+        "model": "Plate",
+        "outGain": 0.5,
+        "mix": 0.32
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 89559,
+          "model": "CLASSIC",
+          "outGain": 0.5,
+          "mix": 1.0
+        },
+        {
+          "tone": 89805,
+          "model": "RHYTHM",
+          "outGain": 0.5,
+          "mix": 1.0
+        },
+        {
+          "tone": 69103,
+          "model": "LA-2A",
+          "outGain": 0.5,
+          "mix": 1.0
+        },
+        {
+          "tone": 88038,
+          "model": "Plate",
+          "outGain": 0.5,
+          "mix": 0.32
+        }
+      ]
+    }
+  },
+  {
+    "name": "Deep Purple - Highway Star",
+    "chain": [
+      {
+        "tone": 87264,
+        "model": "BOOST SET 5",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 51310,
+        "model": "MRSH MJR",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "outGain": 0.5,
+        "mix": 0.2
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 87264,
+          "model": "BOOST SET 5",
+          "outGain": 0.5,
+          "mix": 1.0
+        },
+        {
+          "tone": 72145,
+          "model": "SL68",
+          "outGain": 0.5,
+          "mix": 1.0
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "outGain": 0.5,
+          "mix": 0.2
+        }
+      ]
+    }
+  },
+  {
+    "name": "Allman Brothers - Blue Sky",
+    "chain": [
+      {
+        "tone": 65578,
+        "model": "JM50LD",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "outGain": 0.5,
+        "mix": 0.22
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 86687,
+          "model": "76 Mars 50 JMP J 5 M76",
+          "outGain": 0.5,
+          "mix": 1.0
+        },
+        {
+          "tone": 69103,
+          "model": "LA-2A",
+          "outGain": 0.5,
+          "mix": 1.0
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "outGain": 0.5,
+          "mix": 0.22
+        }
+      ]
+    }
+  },
+  {
+    "name": "Lynyrd Skynyrd - Free Bird",
+    "chain": [
+      {
+        "tone": 72145,
+        "model": "SL68",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "outGain": 0.5,
+        "mix": 0.25
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 87031,
+          "model": "1969 Marshall JMP Super Lead",
+          "outGain": 0.5,
+          "mix": 1.0
+        },
+        {
+          "tone": 69103,
+          "model": "LA-2A",
+          "outGain": 0.5,
+          "mix": 1.0
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "outGain": 0.5,
+          "mix": 0.25
+        }
+      ]
+    }
+  },
+  {
+    "name": "Chuck Berry - Johnny B Goode",
+    "chain": [
+      {
+        "tone": 60033,
+        "model": "GBSN G200",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 65088,
+        "model": "Echo Fix",
+        "outGain": 0.5,
+        "mix": 0.35
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "outGain": 0.5,
+        "mix": 0.18
+      }
+    ],
+    "stereo": {
+      "right": [
+        {
+          "tone": 84556,
+          "model": "Clapton's Bassman",
+          "outGain": 0.5,
+          "mix": 1.0
+        },
+        {
+          "tone": 65088,
+          "model": "Echo Fix",
+          "outGain": 0.5,
+          "mix": 0.35
+        },
+        {
+          "tone": 88038,
+          "model": "Room",
+          "outGain": 0.5,
+          "mix": 0.18
+        }
+      ]
+    }
+  }
+]

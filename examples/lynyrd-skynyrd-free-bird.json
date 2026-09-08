@@ -1,0 +1,45 @@
+{
+  "name": "Lynyrd Skynyrd - Free Bird",
+  "chain": [
+    {
+      "tone": 72145,
+      "model": "SL68",
+      "outGain": 0.5,
+      "mix": 1.0
+    },
+    {
+      "tone": 69103,
+      "model": "LA-2A",
+      "outGain": 0.5,
+      "mix": 1.0
+    },
+    {
+      "tone": 88038,
+      "model": "Room",
+      "outGain": 0.5,
+      "mix": 0.25
+    }
+  ],
+  "stereo": {
+    "right": [
+      {
+        "tone": 87031,
+        "model": "1969 Marshall JMP Super Lead",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 69103,
+        "model": "LA-2A",
+        "outGain": 0.5,
+        "mix": 1.0
+      },
+      {
+        "tone": 88038,
+        "model": "Room",
+        "outGain": 0.5,
+        "mix": 0.25
+      }
+    ]
+  }
+}
