@@ -31,8 +31,10 @@ python scripts/t3k.py install-templates --category all
 Open TONE3000 in your DAW (Ableton, Logic, Reaper, Pro Tools, FL Studio) or standalone app — your presets are ready to play!
 
 ### 3. Use with Claude (Natural Language)
-- **Claude.ai / Claude Desktop / Cowork:** Zip the `skill/tone3000-preset-builder` folder and upload it in *Settings -> Skills*.
+- **Claude.ai / Claude Desktop / Cowork:** Download the upload-ready **[`tone3000-preset-builder.zip`](https://github.com/tlennon-ie/Tone3000-PresetBuilder/raw/main/tone3000-preset-builder.zip)** (or run `python scripts/t3k.py package-skill` from your repo) and upload it in *Settings -> Skills*.
 - **Claude Code:** Copy `skill/tone3000-preset-builder` into `.claude/skills/` in your repository or `~/.claude/skills/`.
+
+*(Note: The skill package includes complete offline hardware specs and recipes in `references/artist-rig-memory.json`. When you ask Claude to install presets, `t3k.py install-templates` automatically fetches the verified presets on demand if they aren't already on disk).*
 
 Then simply ask:
 > *"Build me a Foo Fighters Everlong chorus tone in TONE3000, stereo."*  

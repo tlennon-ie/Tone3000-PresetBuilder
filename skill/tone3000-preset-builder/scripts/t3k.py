@@ -24,7 +24,7 @@ Auth:
   Set T3K_SECRET_KEY (or T3K_API_KEY) with a secret key (t3k_cs_...) or access token.
   Configure keys and OAuth at https://www.tone3000.com/settings
 """
-import argparse, base64, hashlib, json, os, platform, re, secrets, struct, sys, time, uuid, webbrowser
+import argparse, base64, hashlib, json, os, platform, re, secrets, struct, sys, time, uuid, webbrowser, zipfile
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
@@ -760,19 +760,70 @@ def install_templates(category, out_dir, source_dir=None):
     installed = []
     for cat in cats:
         cat_dir = os.path.join(src_root, cat)
-        if not os.path.isdir(cat_dir):
-            print(f"(no bundled '{cat}' presets found at {cat_dir})")
-            continue
-        for fn in sorted(os.listdir(cat_dir)):
-            if not fn.endswith(".t3kpreset"):
-                continue
+        files_to_install = []
+        if os.path.isdir(cat_dir):
+            for fn in sorted(os.listdir(cat_dir)):
+                if fn.endswith(".t3kpreset"):
+                    files_to_install.append((fn, os.path.join(cat_dir, fn), None))
+
+        # Fallback: if presets are not stored locally (e.g. lightweight Claude skill package), download directly from GitHub
+        if not files_to_install:
+            print(f"Local '{cat}' folder not found. Downloading presets from GitHub repository...")
+            try:
+                api_url = f"https://api.github.com/repos/tlennon-ie/Tone3000-PresetBuilder/contents/skill/tone3000-preset-builder/presets/{cat}"
+                req = urllib.request.Request(api_url, headers={"User-Agent": "Tone3000-PresetBuilder"})
+                with urllib.request.urlopen(req, timeout=15) as resp:
+                    items = json.loads(resp.read().decode("utf-8"))
+                    for it in items:
+                        if it["name"].endswith(".t3kpreset") and it.get("download_url"):
+                            files_to_install.append((it["name"], None, it["download_url"]))
+            except Exception as e:
+                print(f"(could not fetch '{cat}' presets from GitHub: {e})")
+
+        for fn, local_src, download_url in files_to_install:
             dst = os.path.join(out_dir, fn)
-            with open(os.path.join(cat_dir, fn), "rb") as fsrc, open(dst, "wb") as fdst:
-                fdst.write(fsrc.read())
+            if local_src:
+                with open(local_src, "rb") as fsrc, open(dst, "wb") as fdst:
+                    fdst.write(fsrc.read())
+            elif download_url:
+                try:
+                    req = urllib.request.Request(download_url, headers={"User-Agent": "Tone3000-PresetBuilder"})
+                    with urllib.request.urlopen(req, timeout=15) as fsrc, open(dst, "wb") as fdst:
+                        fdst.write(fsrc.read())
+                except Exception as e:
+                    print(f"Failed to download {fn}: {e}")
+                    continue
             installed.append(dst)
             print(f"installed [{cat}]  {fn}")
     print(f"DONE — {len(installed)} template preset(s) installed to {out_dir}")
     return installed
+
+def package_skill(output_zip=None):
+    """Package the skill directory into a lightweight, Claude-compliant zip archive."""
+    skill_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    out_path = output_zip or os.path.abspath(os.path.join(skill_dir, "..", "..", "tone3000-preset-builder.zip"))
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+
+    skill_md = os.path.join(skill_dir, "SKILL.md")
+    if os.path.isfile(skill_md):
+        with open(skill_md, "r", encoding="utf-8") as f:
+            content = f.read()
+            match = re.search(r"^description:\s*(.*)$", content, re.MULTILINE)
+            if match and ("<" in match.group(1) or ">" in match.group(1)):
+                sys.exit("Error: SKILL.md description contains '<' or '>'. Please remove XML tags before packaging.")
+
+    with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED) as z:
+        for root, _, files in os.walk(skill_dir):
+            if "presets" in root or "__pycache__" in root or ".git" in root:
+                continue
+            for f in files:
+                if f.endswith((".zip", ".pyc")) or f.startswith("."):
+                    continue
+                abs_p = os.path.join(root, f)
+                rel_p = os.path.relpath(abs_p, skill_dir).replace("\\", "/")
+                z.write(abs_p, rel_p)
+    print(f"Packaged Claude-compliant skill: {out_path} ({os.path.getsize(out_path)} bytes)")
+    return out_path
 
 def verify(path, quiet=False):
     with open(path, "rb") as f:
@@ -982,6 +1033,9 @@ def main():
     it.add_argument("--out")
     it.add_argument("--source", help="folder containing standard/ and di-reamp/ subfolders")
 
+    ps = sub.add_parser("package-skill", help="package the skill into a Claude-compliant zip archive")
+    ps.add_argument("--out", help="destination zip path (default: tone3000-preset-builder.zip at project root)")
+
     a = ap.parse_args()
 
     if a.cmd == "rig":
@@ -1073,6 +1127,8 @@ def main():
         print("OK" if n and not probs else "FAILED")
     elif a.cmd == "install-templates":
         install_templates(a.category, a.out, a.source)
+    elif a.cmd == "package-skill":
+        package_skill(a.out)
     elif a.cmd == "list":
         d = a.dir or presets_dir()
         if not os.path.isdir(d):

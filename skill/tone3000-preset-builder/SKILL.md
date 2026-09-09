@@ -26,13 +26,14 @@ python scripts/t3k.py whoami
   whether it exists. If it does not exist, TONE3000 has never been run — tell the user to install and
   launch it once (https://www.tone3000.com/plugin), or build with `--out` to a folder of their choice.
   Never overwrite or delete files you did not create; the user's own presets live here too.
-- **Authentication**: If `whoami` prints user info, you're ready to search and build live tones.
-  If `whoami` reports not logged in:
-  - If the user asks for an existing artist/tone covered in `presets/` (or `examples/library.json`),
-    offer to install it offline immediately with `install-templates` (zero credentials needed).
-  - If a new live search is required, instruct the user to run `python scripts/t3k.py login`
-    (or paste their Secret Key `t3k_cs_...` from https://www.tone3000.com/settings). If the user
-    provides their key in chat, run `python scripts/t3k.py login --key <key>` for them.
+- **Accessing & Installing 270+ Pre-built Presets**:
+  - The skill includes 270+ verified presets covering 80+ Equipboard artists, classic albums, solos, and DI-reamp rigs.
+  - All hardware specs and capture mappings are cataloged in `references/artist-rig-memory.json` (accessible directly in your context).
+  - You or the user can install these presets directly to the local TONE3000 folder anytime with:
+    `python scripts/t3k.py install-templates --category [all|artists|standard|di-reamp]`
+    *(If running in a lightweight skill environment where binary preset files were excluded, `install-templates` automatically fetches the verified presets on demand from GitHub).*
+  - You can also customize or rebuild any preset on the fly with `python scripts/t3k.py build <recipe.json>`.
+- **Live Search & Custom Tones**: If `whoami` reports not logged in and a brand-new live search is required, instruct the user to run `python scripts/t3k.py login` (or paste their Secret Key `t3k_cs_...` from https://www.tone3000.com/settings). If the user provides their key in chat, run `python scripts/t3k.py login --key <key>` for them.
 
 ### 2. Intake — ask only what changes the build
 Read `references/intake.md`. Ask in one short message, skipping anything already known:
