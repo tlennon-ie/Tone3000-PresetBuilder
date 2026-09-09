@@ -5,6 +5,7 @@ Turn *"make me a Slash tone"* into a real, loadable preset for the free **[TONE3
 Presets are written straight into your local TONE3000 preset folder using captures searched live on [tone3000.com](https://www.tone3000.com) or bundled offline templates. The `.t3kpreset` format was reverse-engineered from the plugin's open-source C++ JUCE codebase and is written byte-exact.
 
 ## Changelog
+- **Public Model Storage URL Normalization**: Presets now resolve model downloads directly to public storage bucket URLs, enabling instant, error-free downloads in the TONE3000 plugin without requiring authentication.
 - **186 Bundled Artist Presets (Mono & Stereo)**: Pre-built, verified presets for all 80 Equipboard artist profiles plus iconic tone variations, installable via `t3k.py install-templates --category artists`.
 - **Official TONE3000 API v1 & OAuth 2.0**: Migrated from legacy scraping to official REST API v1 with OAuth 2.0 PKCE browser login and Secret Key support.
 - **Offline Artist Rig Memory & Web Search Hybrid**: Added persistent artist hardware database (`t3k.py rig`) with continuous memory growth and Equipboard integration.
