@@ -34,6 +34,7 @@ import urllib.request, urllib.error, urllib.parse
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
 API_BASE = "https://www.tone3000.com/api/v1"
+PUBLIC_STORAGE_BASE = "https://api.tone3000.com/storage/v1/object/public/models"
 OAUTH_AUTHORIZE_URL = f"{API_BASE}/oauth/authorize"
 OAUTH_TOKEN_URL = f"{API_BASE}/oauth/token"
 DEFAULT_REDIRECT_URI = "http://localhost:8080/callback"
@@ -469,6 +470,15 @@ def search(term, gear=None, n=10, sort="trending", architecture="2"):
         page += 1
     return all_results
 
+def normalize_model_url(url):
+    if not url:
+        return url
+    parsed = urllib.parse.urlparse(url)
+    filename = parsed.path.split("/")[-1]
+    if filename:
+        return f"{PUBLIC_STORAGE_BASE}/{filename}"
+    return url
+
 _cache = {}
 def tone_bundle(tone_id):
     """tone row, creator user info, models — everything a block needs."""
@@ -483,6 +493,10 @@ def tone_bundle(tone_id):
     ms = models_res.get("data", []) if isinstance(models_res, dict) else (models_res if isinstance(models_res, list) else [])
     if not ms:
         sys.exit(f"tone {tone_id} ('{t.get('title')}') has no downloadable models")
+
+    for m in ms:
+        if m.get("model_url"):
+            m["model_url"] = normalize_model_url(m["model_url"])
 
     _cache[tone_id] = (t, ms)
     return _cache[tone_id]
