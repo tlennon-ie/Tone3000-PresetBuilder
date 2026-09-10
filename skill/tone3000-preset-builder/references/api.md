@@ -124,7 +124,7 @@ Returns `PaginatedResponse<Model[]>`:
       "id": 741409,
       "tone_id": 87735,
       "name": "Jcm800",
-      "model_url": "https://api.tone3000.com/storage/v1/object/public/models/...",
+      "model_url": "https://www.tone3000.com/api/v1/models/741409/download/...",
       "size": "standard",
       "architecture_version": "2"
     }
@@ -138,6 +138,6 @@ Returns `PaginatedResponse<Model[]>`:
 
 The `.t3kpreset` format contains a JUCE ValueTree with a `ChainBlock` node for each gear item.
 Each block contains a `toneJson` string serialization of the tone:
-- Must have `models[]` array with `id`, `name`, and `model_url`.
+- Must have `models[]` array with `id`, `name`, and `model_url` (from official API).
 - `activeModelId` property on `ChainBlock` must match one of the model IDs in `models[]`.
-- `ProcessorHistory.cpp::queueActiveModelLoad` downloads `model_url` when loading the preset in TONE3000.
+- `ProcessorHistory.cpp::queueActiveModelLoad` downloads `model_url` when loading the preset in TONE3000 (authenticated via the user's active TONE3000 session).
