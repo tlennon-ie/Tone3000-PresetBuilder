@@ -16,16 +16,21 @@ this session. The file format is exact-bytes binary — never hand-write it; alw
 
 ## Workflow
 
-### 1. Check preset folder and authentication (do this first, silently)
+### 1. Check preset folder, authentication, and preferences (do this first, silently)
 ```
 python scripts/t3k.py presets-dir
 python scripts/t3k.py whoami
+python scripts/t3k.py prefs
 ```
 - **Preset folder**: Prints the folder for this OS (Windows `%APPDATA%\TONE3000\Presets`, macOS
   `~/Library/Application Support/TONE3000/Presets`, Linux `~/.config/TONE3000/Presets`) and
   whether it exists. If it does not exist, TONE3000 has never been run — tell the user to install and
   launch it once (https://www.tone3000.com/plugin), or build with `--out` to a folder of their choice.
   Never overwrite or delete files you did not create; the user's own presets live here too.
+- **User Gear Hierarchy & Monitoring Preferences (`prefs`)**:
+  - Silently inspect the output of `python scripts/t3k.py prefs`.
+  - Reads active tone profile, preferred brands, amps, drives, cabs, preferred creators, monitoring setup (`FRFR` with cabs vs. `DI-REAMP` preamp-only), and voicing (`STEREO` vs. `MONO`).
+  - If the user asks in chat to change their gear preferences, preferred brands, monitoring setup (e.g. "I play through a real amp/cab, make it DI reamp mode"), or favorite creators, run `python scripts/t3k.py prefs set ...`, `python scripts/t3k.py prefs template <name>`, or `python scripts/t3k.py prefs sync` for them immediately!
 - **Accessing & Installing 270+ Pre-built Presets**:
   - The skill includes 270+ verified presets covering 80+ Equipboard artists, classic albums, solos, and DI-reamp rigs.
   - All hardware specs and capture mappings are cataloged in `references/artist-rig-memory.json` (accessible directly in your context).
@@ -36,17 +41,16 @@ python scripts/t3k.py whoami
 - **Live Search & Custom Tones**: If `whoami` reports not logged in and a brand-new live search is required, instruct the user to run `python scripts/t3k.py login` (or paste their Secret Key `t3k_cs_...` from https://www.tone3000.com/settings). If the user provides their key in chat, run `python scripts/t3k.py login --key <key>` for them.
 
 ### 2. Intake — ask only what changes the build
-Read `references/intake.md`. Ask in one short message, skipping anything already known:
+Read `references/intake.md`. Ask in one short message, skipping anything already known from user preferences:
 - **Target**: artist / song / *which part* (Creed's clean intro vs the chorus wall; the Everlong
   verse is clean, the chorus is Mesa crunch). Default to the song's signature part and say so.
-- **Mono, stereo, or both** (default both — stereo is free).
-- **Rig**: what they plug into and monitor through. Studio monitors / headphones / FRFR →
-  chain must include a cab. Real guitar amp + cab → no cab in the chain. **Real power amp(s) +
-  real cab(s), wants only the preamp digitally** → this is DI/reamp mode, a distinct case — see
-  step 4. Bass? Use bass captures.
+- **Mono, stereo, or both**: Skip if already configured in `prefs` (`defaults.voicing`). Default to user's preferred voicing.
+- **Rig / Monitoring**: Skip if already configured in `prefs` (`defaults.monitoring`).
+  - If `FRFR` / `FULL` (default): Studio monitors / headphones / FRFR → chain must include a cab.
+  - If `DI-REAMP` / `DI`: Real power amp(s) + real cab(s), wants only the preamp digitally → this is DI/reamp mode, a distinct case — see step 4.
 - **Guitar/pickups** only if it changes the pick (single coils into high gain → nudge gain up;
   humbuckers into a plexi → run the amp capture's lower-gain model).
-One round of questions maximum; then build. Plain "just make it" → sensible defaults, stated.
+One round of questions maximum; then build. Plain "just make it" → sensible defaults from `prefs`, stated.
 
 ### 3. Check memory & research real gear (silent — before you design anything)
 First, check the local repository memory to see if the artist/song hardware stack is already documented:
@@ -69,7 +73,13 @@ your step-3 research to override or refine the map: real sourcing sometimes mean
 all in an era, or a specific amp the map doesn't have. Chain order is normally:
 `compressor/outboard → drive/fuzz/boost → amp (or amp+cab) → [cab IR if head] → console/EQ → reverb/space`
 
-**If the user is in DI/reamp mode** (real power amp + real cabs, wants preamp-only), read
+- **Applying User Gear Hierarchy**:
+  - If the user's prompt is open-ended (*"make me a great British crunch"*, *"give me a modern high gain solo"*, *"build me an edge-of-breakup tone"*), prioritize their top-ranked preferred brands and amps from `prefs` (e.g. Marshall JCM800, Mesa Boogie, Soldano).
+  - When selecting drives or boosts, consult `hierarchy.drives` (e.g. Tube Screamer before Klon).
+  - When selecting speaker cabinets/IRs, consult `hierarchy.cabs` (e.g. 4x12 Celestion V30).
+  - Respect `exclusions`: do not include blacklisted brands or gear types unless explicitly requested.
+
+**If the user is in DI/reamp mode** (real power amp + real cabs, wants preamp-only per `prefs` or request), read
 `references/di-reamp-mode.md` instead of following the grammar above: the chain stops at the amp's
 preamp stage — no cab block, no mic, no reverb, ever. Search `gear=amp` (never `amp-cab`) and
 confirm each pick is a true DI/preamp capture (tags like `di`, `preamp-only`, `reamp-ready`, `no ir
@@ -85,6 +95,7 @@ python scripts/t3k.py search "jcm800" --gear amp-cab --n 8
 python scripts/t3k.py tone 87735            # lists every model variant + tags + description
 ```
 If authentication is needed, run `python scripts/t3k.py login` (or set `T3K_SECRET_KEY` / `T3K_API_KEY`).
+`t3k.py search` automatically scores and boosts results matching the user's preferred creators (marked with `★`) and preferred brands, while filtering out excluded brands.
 Translate real gear names into search terms per the table in `gear-research.md` (a "ProCo Rat"
 rarely matches a capture titled that exactly — search `rat`, widen if empty). Prefer: A2
 captures, high download counts, creators with settings descriptions, and titles/tags naming the

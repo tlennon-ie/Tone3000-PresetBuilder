@@ -11,6 +11,7 @@ Commands
   login                           authenticate with TONE3000 via official OAuth 2.0 PKCE flow or API key
   logout                          remove saved local authentication tokens
   whoami                          display currently authenticated TONE3000 user
+  prefs                           view, configure, or sync tone & gear hierarchy preferences
   presets-dir                     print the user preset folder for this OS (and whether it exists)
   search TERM [--gear G] [--n N]  search TONE3000 (gear: amp, amp-cab, cab, pedal, outboard, space, experimental)
   tone ID                         show a tone + all its models (pick a model name/regex from here)
@@ -444,10 +445,441 @@ def get_current_user(token=None):
     except Exception:
         return None
 
-def search(term, gear=None, n=10, sort="trending", architecture="2"):
+# ----------------------------------------------------------------------------
+# User Preferences & Hierarchy Engine
+# ----------------------------------------------------------------------------
+PREF_TEMPLATES = {
+    "default": {
+        "name": "Rock & Studio Main",
+        "hierarchy": {
+            "brands": ["Marshall", "Mesa Boogie", "Fender", "Friedman", "Soldano", "Two-Rock"],
+            "amps": ["JCM800 2203", "1959 Super Lead Plexi", "Mesa Dual Rectifier", "1965 Twin Reverb", "Soldano SLO-100"],
+            "drives": ["Ibanez TS9 / TS808 Tube Screamer", "Klon Centaur", "Analogman King of Tone", "Marshall Bluesbreaker"],
+            "cabs": ["4x12 Celestion Vintage 30", "4x12 Celestion Greenback", "2x12 Jensen C12N"],
+            "reverbs": ["Plate", "Spring", "Room"],
+            "artists": ["Slash", "David Gilmour", "Stevie Ray Vaughan", "Jerry Cantrell"],
+        },
+        "creators": {
+            "preferred": [],
+            "auto_boost_search": True,
+            "last_synced": None,
+        },
+        "exclusions": {
+            "brands": ["Bugera", "Line 6"],
+            "gear_types": [],
+        },
+        "defaults": {
+            "monitoring": "frfr",
+            "voicing": "stereo",
+            "dual_cab_mic_pairing": ["SM57", "MD421"],
+        },
+    },
+    "modern-high-gain": {
+        "name": "Modern High-Gain & Metal",
+        "hierarchy": {
+            "brands": ["Mesa Boogie", "Peavey", "EVH", "Diezel", "ENGL", "Bogner", "Soldano"],
+            "amps": ["Peavey 5150 Block Letter", "Mesa Dual Rectifier Multi-Watt", "Diezel VH4", "ENGL Savage 120", "EVH 5150III"],
+            "drives": ["Precision Drive", "Ibanez TS9 Tube Screamer", "Fortin 33", "Maxon OD808"],
+            "cabs": ["Mesa Traditional 4x12 V30", "Bogner 4x12 V30 / T75", "Orange 4x12 V30"],
+            "reverbs": ["Room", "Plate"],
+            "artists": ["Mick Thomson", "Jim Root", "Adam Jones", "James Hetfield"],
+        },
+        "creators": {"preferred": [], "auto_boost_search": True, "last_synced": None},
+        "exclusions": {"brands": [], "gear_types": []},
+        "defaults": {"monitoring": "frfr", "voicing": "stereo", "dual_cab_mic_pairing": ["SM57", "MD421"]},
+    },
+    "vintage-blues": {
+        "name": "Vintage Blues & Clean",
+        "hierarchy": {
+            "brands": ["Fender", "Two-Rock", "Vox", "Marshall", "Dumble"],
+            "amps": ["1965 Twin Reverb", "1960 Tweed Deluxe 5E3", "Super Reverb", "Two-Rock Traditional Clean", "Vox AC30 Top Boost"],
+            "drives": ["Analogman King of Tone", "Klon Centaur", "Ibanez TS808", "Marshall Bluesbreaker"],
+            "cabs": ["2x12 Jensen C12N", "1x12 Celestion Alnico Blue", "4x10 Jensen P10R"],
+            "reverbs": ["Spring", "Plate"],
+            "artists": ["Stevie Ray Vaughan", "B.B. King", "John Mayer", "Larry Carlton"],
+        },
+        "creators": {"preferred": [], "auto_boost_search": True, "last_synced": None},
+        "exclusions": {"brands": [], "gear_types": []},
+        "defaults": {"monitoring": "frfr", "voicing": "stereo", "dual_cab_mic_pairing": ["SM57", "Royer R-121"]},
+    },
+    "british-crunch": {
+        "name": "Classic British Crunch & 70s Rock",
+        "hierarchy": {
+            "brands": ["Marshall", "Vox", "Orange", "Hiwatt", "Park"],
+            "amps": ["1959 Super Lead Plexi", "JCM800 2203", "Vox AC30", "Hiwatt DR103", "Orange OR120"],
+            "drives": ["Dallas Rangemaster Treble Booster", "Boss SD-1 Super Overdrive", "Colorsound Overdriver", "ProCo Rat"],
+            "cabs": ["Marshall 1960AX (Celestion Greenbacks)", "Hiwatt SE4122 (Fane)", "Vox 2x12 (Alnico Blue)"],
+            "reverbs": ["Plate", "Room", "Spring"],
+            "artists": ["Jimmy Page", "Ritchie Blackmore", "Pete Townshend", "Brian May", "Paul Kossoff"],
+        },
+        "creators": {"preferred": [], "auto_boost_search": True, "last_synced": None},
+        "exclusions": {"brands": [], "gear_types": []},
+        "defaults": {"monitoring": "frfr", "voicing": "stereo", "dual_cab_mic_pairing": ["SM57", "MD421"]},
+    },
+    "90s-grunge": {
+        "name": "90s Grunge & Alternative",
+        "hierarchy": {
+            "brands": ["Mesa Boogie", "Fender", "Marshall", "Electro-Harmonix"],
+            "amps": ["Mesa Dual Rectifier Rev F", "Fender Twin Reverb", "Marshall JCM800 2203", "Marshall JCM900"],
+            "drives": ["Boss DS-1 Distortion", "Electro-Harmonix Big Muff Pi", "ProCo Rat", "Boss DS-2 Turbo Distortion"],
+            "cabs": ["Mesa 4x12 (V30)", "Marshall 1960A (G12T-75)", "Fender 2x12"],
+            "reverbs": ["Room", "Plate"],
+            "artists": ["Kurt Cobain", "Jerry Cantrell", "Kim Thayil", "Billy Corgan", "Stone Gossard"],
+        },
+        "creators": {"preferred": [], "auto_boost_search": True, "last_synced": None},
+        "exclusions": {"brands": [], "gear_types": []},
+        "defaults": {"monitoring": "frfr", "voicing": "stereo", "dual_cab_mic_pairing": ["SM57", "MD421"]},
+    },
+    "di-reamp-studio": {
+        "name": "DI Reamp into Physical Amps/Cabs",
+        "hierarchy": {
+            "brands": ["Marshall", "Mesa Boogie", "Peavey", "Fender", "Soldano"],
+            "amps": ["Peavey 5150 (DI Preamp)", "Dual Rectifier (DI Preamp)", "JCM800 2203 (DI Preamp)"],
+            "drives": ["Precision Drive", "Tube Screamer", "Klon Centaur"],
+            "cabs": [],
+            "reverbs": [],
+            "artists": ["James Hetfield", "Adam Jones", "Mick Thomson"],
+        },
+        "creators": {"preferred": [], "auto_boost_search": True, "last_synced": None},
+        "exclusions": {"brands": [], "gear_types": ["cab", "space"]},
+        "defaults": {"monitoring": "di-reamp", "voicing": "mono", "dual_cab_mic_pairing": []},
+    },
+}
+
+def preferences_file_path():
+    custom = os.environ.get("T3K_PREFERENCES_FILE")
+    if custom:
+        return custom
+    for local_name in [".t3kpreferences.json", "preferences.json"]:
+        if os.path.isfile(local_name):
+            return os.path.abspath(local_name)
+    return os.path.join(os.path.dirname(presets_dir()), "preferences.json")
+
+def default_preferences():
+    return {
+        "version": "1.0",
+        "active_profile": "default",
+        "profiles": json.loads(json.dumps(PREF_TEMPLATES)),
+    }
+
+def load_preferences():
+    path = preferences_file_path()
+    if os.path.isfile(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict) and "profiles" in data:
+                    return data
+        except Exception:
+            pass
+    return default_preferences()
+
+def save_preferences(prefs):
+    path = preferences_file_path()
+    try:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(prefs, f, indent=2)
+        return True
+    except Exception as e:
+        sys.stderr.write(f"Warning: could not save preferences to {path}: {e}\n")
+        return False
+
+def display_preferences(prefs=None, json_out=False):
+    prefs = prefs or load_preferences()
+    if json_out:
+        print(json.dumps(prefs, indent=2))
+        return
+    active_name = prefs.get("active_profile", "default")
+    profile = prefs.get("profiles", {}).get(active_name) or PREF_TEMPLATES.get("default")
+    hierarchy = profile.get("hierarchy", {})
+    creators = profile.get("creators", {})
+    exclusions = profile.get("exclusions", {})
+    defaults = profile.get("defaults", {})
+
+    print("=" * 60)
+    print(f"       TONE3000 PREFERENCES — Active Profile: [{active_name}]")
+    if profile.get("name"):
+        print(f"       {profile['name']}")
+    print("=" * 60)
+    print(f"Config File: {preferences_file_path()}\n")
+
+    print("🎛️  MONITORING & VOICING DEFAULTS:")
+    mon = str(defaults.get("monitoring", "frfr")).lower()
+    mon_desc = "Cabs included (Studio Monitors / FRFR / Headphones)" if mon in ("frfr", "full") else "Preamp-Only (Real Power Amp & Cab / DI Reamp)"
+    print(f"  • Monitoring:    {mon.upper()} — {mon_desc}")
+    print(f"  • Voicing:       {str(defaults.get('voicing', 'stereo')).upper()}")
+    if defaults.get("dual_cab_mic_pairing"):
+        print(f"  • Dual-Mic Cabs: {' + '.join(defaults['dual_cab_mic_pairing'])}")
+
+    print("\n🎸 GEAR HIERARCHY (in priority order):")
+    if hierarchy.get("brands"):
+        print(f"  • Preferred Brands:    {' > '.join(hierarchy['brands'])}")
+    if hierarchy.get("amps"):
+        print(f"  • Preferred Amps:      {' > '.join(hierarchy['amps'])}")
+    if hierarchy.get("drives"):
+        print(f"  • Preferred Drives:    {' > '.join(hierarchy['drives'])}")
+    if hierarchy.get("cabs"):
+        print(f"  • Preferred Cabs:      {' > '.join(hierarchy['cabs'])}")
+    if hierarchy.get("reverbs"):
+        print(f"  • Preferred Reverbs:   {' > '.join(hierarchy['reverbs'])}")
+    if hierarchy.get("artists"):
+        print(f"  • Reference Artists:   {', '.join(hierarchy['artists'])}")
+
+    print("\n👤 CREATOR PREFERENCES:")
+    pref_creators = creators.get("preferred", [])
+    if pref_creators:
+        print(f"  • Preferred Creators:  {', '.join('@' + c for c in pref_creators)}")
+    else:
+        print("  • Preferred Creators:  (none set — run `python scripts/t3k.py prefs sync` to auto-discover)")
+    if creators.get("last_synced"):
+        print(f"  • Last Synced:         {creators['last_synced']}")
+
+    ex_brands = exclusions.get("brands", [])
+    ex_gear = exclusions.get("gear_types", [])
+    if ex_brands or ex_gear:
+        print("\n🚫 EXCLUSIONS / BLACKLIST:")
+        if ex_brands:
+            print(f"  • Excluded Brands:     {', '.join(ex_brands)}")
+        if ex_gear:
+            print(f"  • Excluded Gear Types: {', '.join(ex_gear)}")
+    print("=" * 60)
+
+def set_preference_values(
+    brands=None, amps=None, drives=None, cabs=None, reverbs=None, artists=None,
+    creators=None, monitoring=None, voicing=None, exclude_brand=None, exclude_gear=None,
+    profile_name=None
+):
+    prefs = load_preferences()
+    active_name = profile_name or prefs.get("active_profile", "default")
+    if active_name not in prefs.get("profiles", {}):
+        prefs["profiles"][active_name] = json.loads(json.dumps(PREF_TEMPLATES.get("default", {})))
+
+    prof = prefs["profiles"][active_name]
+    h = prof.setdefault("hierarchy", {})
+    d = prof.setdefault("defaults", {})
+    c = prof.setdefault("creators", {})
+    e = prof.setdefault("exclusions", {})
+
+    def parse_list(val):
+        if not val:
+            return []
+        return [x.strip() for x in str(val).split(",") if x.strip()]
+
+    changes = []
+    if brands is not None:
+        h["brands"] = parse_list(brands)
+        changes.append(f"Brands -> {' > '.join(h['brands'])}")
+    if amps is not None:
+        h["amps"] = parse_list(amps)
+        changes.append(f"Amps -> {' > '.join(h['amps'])}")
+    if drives is not None:
+        h["drives"] = parse_list(drives)
+        changes.append(f"Drives -> {' > '.join(h['drives'])}")
+    if cabs is not None:
+        h["cabs"] = parse_list(cabs)
+        changes.append(f"Cabs -> {' > '.join(h['cabs'])}")
+    if reverbs is not None:
+        h["reverbs"] = parse_list(reverbs)
+        changes.append(f"Reverbs -> {' > '.join(h['reverbs'])}")
+    if artists is not None:
+        h["artists"] = parse_list(artists)
+        changes.append(f"Reference Artists -> {', '.join(h['artists'])}")
+    if creators is not None:
+        c["preferred"] = [x.lstrip("@") for x in parse_list(creators)]
+        changes.append(f"Preferred Creators -> {', '.join('@' + x for x in c['preferred'])}")
+    if monitoring is not None:
+        m = "di-reamp" if monitoring.lower() in ("di", "di-reamp", "reamp") else "frfr"
+        d["monitoring"] = m
+        changes.append(f"Monitoring -> {m.upper()}")
+    if voicing is not None:
+        v = voicing.lower()
+        if v not in ("stereo", "mono", "both"):
+            v = "stereo"
+        d["voicing"] = v
+        changes.append(f"Voicing -> {v.upper()}")
+    if exclude_brand is not None:
+        cur = e.setdefault("brands", [])
+        for b in parse_list(exclude_brand):
+            if b not in cur:
+                cur.append(b)
+        changes.append(f"Excluded Brands -> {', '.join(cur)}")
+    if exclude_gear is not None:
+        cur = e.setdefault("gear_types", [])
+        for g in parse_list(exclude_gear):
+            if g not in cur:
+                cur.append(g)
+        changes.append(f"Excluded Gear Types -> {', '.join(cur)}")
+
+    if changes:
+        save_preferences(prefs)
+        print(f"Updated preferences for profile [{active_name}]:")
+        for ch in changes:
+            print(f"  ✓ {ch}")
+    else:
+        print("No preference changes specified.")
+    return True
+
+def sync_preferences_from_tone3000(token=None):
+    token = token or get_active_token()
+    if not token:
+        sys.exit(
+            "Authentication required to sync creator preferences.\n"
+            "  Run `python scripts/t3k.py login` first or provide a Secret Key."
+        )
+    user = get_current_user(token)
+    uname = user.get("username") if user else "user"
+    print(f"Syncing favorite and downloaded captures for @{uname} from tone3000.com...")
+
+    counts = {}
+    total_tones = 0
+
+    # 1. Favorited tones (weight 2)
+    try:
+        favs = api_get("tones/favorited", {"page": 1, "page_size": 50}, token_override=token)
+        fav_items = favs.get("data", []) if isinstance(favs, dict) else (favs if isinstance(favs, list) else [])
+        for item in fav_items:
+            u = item.get("user") or {}
+            cname = u.get("username") if isinstance(u, dict) else None
+            if cname and cname.lower() != uname.lower():
+                counts[cname] = counts.get(cname, 0) + 2
+                total_tones += 1
+    except Exception as e:
+        print(f"  (Note: could not retrieve favorited tones: {e})")
+
+    # 2. Downloaded tones (weight 1)
+    try:
+        dls = api_get("tones/downloaded", {"page": 1, "page_size": 50}, token_override=token)
+        dl_items = dls.get("data", []) if isinstance(dls, dict) else (dls if isinstance(dls, list) else [])
+        for item in dl_items:
+            u = item.get("user") or {}
+            cname = u.get("username") if isinstance(u, dict) else None
+            if cname and cname.lower() != uname.lower():
+                counts[cname] = counts.get(cname, 0) + 1
+                total_tones += 1
+    except Exception as e:
+        print(f"  (Note: could not retrieve downloaded tones: {e})")
+
+    prefs = load_preferences()
+    active_name = prefs.get("active_profile", "default")
+    if active_name not in prefs.get("profiles", {}):
+        prefs["profiles"][active_name] = json.loads(json.dumps(PREF_TEMPLATES.get("default", {})))
+
+    prof = prefs["profiles"][active_name]
+    if "creators" not in prof:
+        prof["creators"] = {}
+
+    if not counts:
+        print(f"Found 0 favorited or downloaded captures on tone3000.com for @{uname}.")
+        prof["creators"]["last_synced"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        save_preferences(prefs)
+        return False
+
+    sorted_creators = [c for c, _ in sorted(counts.items(), key=lambda x: x[1], reverse=True)]
+    print(f"Discovered {len(sorted_creators)} creator(s) across {total_tones} favorited/downloaded tone(s):")
+    for idx, c in enumerate(sorted_creators[:8], 1):
+        print(f"  [{idx}] @{c} ({counts[c]} engagement pts)")
+
+    prof["creators"]["preferred"] = sorted_creators[:10]
+    prof["creators"]["last_synced"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+    save_preferences(prefs)
+    print(f"\nSuccessfully updated preferred creators in profile [{active_name}] ({preferences_file_path()})!")
+    return True
+
+def load_template_profile(template_name, target_profile=None):
+    if template_name not in PREF_TEMPLATES:
+        sys.exit(f"Unknown template '{template_name}'. Available templates: {', '.join(PREF_TEMPLATES.keys())}")
+    prefs = load_preferences()
+    target = target_profile or template_name
+    prefs.setdefault("profiles", {})[target] = json.loads(json.dumps(PREF_TEMPLATES[template_name]))
+    prefs["active_profile"] = target
+    save_preferences(prefs)
+    print(f"Successfully loaded template '{template_name}' as profile [{target}] ({preferences_file_path()})!\n")
+    display_preferences(prefs)
+
+def interactive_prefs_wizard():
+    print("=" * 60)
+    print("       TONE3000 Tone Preference Setup Wizard")
+    print("=" * 60)
+    print("Configure your tone preferences in ~30 seconds.\n")
+
+    # 1. Monitoring setup
+    print("[1] Primary Monitoring Setup:")
+    print("    (1) Studio Monitors / FRFR / Headphones (includes Cabs — recommended for most)")
+    print("    (2) Real Power Amp & Cab (DI Preamp-Only / Reamp mode — NO cabs or reverbs)")
+    try:
+        m_choice = input("    Selection [1/2] (default: 1): ").strip()
+    except (KeyboardInterrupt, EOFError):
+        print("\nAborted.")
+        return
+    monitoring = "di-reamp" if m_choice == "2" else "frfr"
+
+    # 2. Voicing
+    print("\n[2] Preset Voicing:")
+    print("    (1) Stereo (complementary dual-blocks / wide stereo — recommended)")
+    print("    (2) Mono (single chain)")
+    print("    (3) Both (generate both mono and stereo variants)")
+    try:
+        v_choice = input("    Selection [1/2/3] (default: 1): ").strip()
+    except (KeyboardInterrupt, EOFError):
+        print("\nAborted.")
+        return
+    voicing = "mono" if v_choice == "2" else ("both" if v_choice == "3" else "stereo")
+
+    # 3. Preferred brands
+    print("\n[3] Preferred Amp Brands (in priority order, comma-separated):")
+    print("    Example: Marshall, Mesa Boogie, Fender, Friedman, Soldano")
+    try:
+        b_input = input("    Brands: ").strip()
+    except (KeyboardInterrupt, EOFError):
+        print("\nAborted.")
+        return
+
+    # 4. Preferred drives
+    print("\n[4] Preferred Boost / Drive Pedals (in priority order, comma-separated):")
+    print("    Example: Tube Screamer, Klon Centaur, King of Tone")
+    try:
+        d_input = input("    Drives: ").strip()
+    except (KeyboardInterrupt, EOFError):
+        print("\nAborted.")
+        return
+
+    # 5. Preferred cabs (if not di-reamp)
+    c_input = ""
+    if monitoring == "frfr":
+        print("\n[5] Preferred Speaker / Cab Type:")
+        print("    Example: 4x12 Celestion Vintage 30, 4x12 Greenback, 2x12 Jensen")
+        try:
+            c_input = input("    Cabs: ").strip()
+        except (KeyboardInterrupt, EOFError):
+            print("\nAborted.")
+            return
+
+    prefs = load_preferences()
+    active_name = prefs.get("active_profile", "default")
+    set_preference_values(
+        brands=b_input if b_input else None,
+        drives=d_input if d_input else None,
+        cabs=c_input if c_input else None,
+        monitoring=monitoring,
+        voicing=voicing,
+        profile_name=active_name
+    )
+    print("\nSetup complete! You can view or edit your preferences anytime with `python scripts/t3k.py prefs`.")
+
+def search(term, gear=None, n=10, sort="trending", architecture="2", creators=None, apply_prefs=True):
     all_results = []
     page = 1
     remaining = n
+
+    prefs = load_preferences() if apply_prefs else None
+    active = prefs.get("active_profile", "default") if prefs else "default"
+    prof = prefs.get("profiles", {}).get(active, {}) if prefs else {}
+    pref_creators = prof.get("creators", {}).get("preferred", []) if prof else []
+    excluded_brands = [b.lower() for b in prof.get("exclusions", {}).get("brands", [])] if prof else []
+    preferred_brands = [b.lower() for b in prof.get("hierarchy", {}).get("brands", [])] if prof else []
+
     while remaining > 0:
         page_size = min(remaining, 25)
         params = {
@@ -458,6 +890,8 @@ def search(term, gear=None, n=10, sort="trending", architecture="2"):
             "gears": gear if gear else None,
             "architecture": architecture,
         }
+        if creators:
+            params["creators"] = creators
         res = api_get("tones/search", params)
         batch = res.get("data", []) if isinstance(res, dict) else (res if isinstance(res, list) else [])
         if not batch:
@@ -467,6 +901,35 @@ def search(term, gear=None, n=10, sort="trending", architecture="2"):
         if len(batch) < page_size:
             break
         page += 1
+
+    if apply_prefs and all_results:
+        filtered = []
+        for r in all_results:
+            u = r.get("user") or {}
+            cname = (u.get("username") if isinstance(u, dict) else r.get("username") or "").lower()
+            title = (r.get("title") or "").lower()
+            makes = [m.get("name", "").lower() for m in r.get("makes") or [] if isinstance(m, dict)]
+
+            # Check exclusions
+            is_excluded = any(ex in title or any(ex in m for m in makes) for ex in excluded_brands)
+            if is_excluded:
+                continue
+
+            # Calculate preference boost score
+            score = 0
+            if cname in [c.lower() for c in pref_creators]:
+                rank_idx = [c.lower() for c in pref_creators].index(cname)
+                score += max(10, 50 - rank_idx * 5)
+            for b_idx, pb in enumerate(preferred_brands):
+                if pb in title or any(pb in m for m in makes):
+                    score += max(5, 30 - b_idx * 4)
+                    break
+            r["_pref_score"] = score
+            filtered.append(r)
+
+        filtered.sort(key=lambda x: x.get("_pref_score", 0), reverse=True)
+        return filtered
+
     return all_results
 
 _cache = {}
@@ -798,12 +1261,12 @@ def package_skill(output_zip=None):
             if match and ("<" in match.group(1) or ">" in match.group(1)):
                 sys.exit("Error: SKILL.md description contains '<' or '>'. Please remove XML tags before packaging.")
 
-    with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED) as z:
+    with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
         for root, _, files in os.walk(skill_dir):
             if "presets" in root or "__pycache__" in root or ".git" in root:
                 continue
             for f in files:
-                if f.endswith((".zip", ".pyc")) or f.startswith("."):
+                if f.endswith((".zip", ".pyc")) or f.startswith(".") or f == "artist-rig-library.md":
                     continue
                 abs_p = os.path.join(root, f)
                 rel_p = os.path.relpath(abs_p, skill_dir).replace("\\", "/")
@@ -988,6 +1451,26 @@ def main():
     sub.add_parser("logout", help="clear locally stored authentication tokens")
     sub.add_parser("whoami", help="show authenticated user information")
 
+    # Preferences command
+    pr = sub.add_parser("prefs", help="view, configure, or sync user tone & gear preferences")
+    pr.add_argument("action", nargs="?", default="show", choices=["show", "init", "set", "sync", "template", "profile"], help="prefs action: show (default), init, set, sync, template, profile")
+    pr.add_argument("target", nargs="?", help="template name or profile name")
+    pr.add_argument("--interactive", action="store_true", help="run guided questionnaire for prefs init")
+    pr.add_argument("--template", choices=list(PREF_TEMPLATES.keys()), help="template name to seed or load")
+    pr.add_argument("--brands", help="comma-separated preferred brands in priority order")
+    pr.add_argument("--amps", help="comma-separated preferred amp models")
+    pr.add_argument("--drives", help="comma-separated preferred drive/boost pedals")
+    pr.add_argument("--cabs", help="comma-separated preferred cabinet/speaker types")
+    pr.add_argument("--reverbs", help="comma-separated preferred reverb types")
+    pr.add_argument("--artists", help="comma-separated fallback reference artists")
+    pr.add_argument("--creators", help="comma-separated preferred TONE3000 creators")
+    pr.add_argument("--monitoring", choices=["frfr", "full", "di-reamp", "di"], help="monitoring setup: frfr/full (includes cabs) or di-reamp/di (preamp-only)")
+    pr.add_argument("--voicing", choices=["stereo", "mono", "both"], help="default voicing: stereo, mono, or both")
+    pr.add_argument("--exclude-brand", help="add brand to exclusion blacklist")
+    pr.add_argument("--exclude-gear", help="add gear type to exclusion blacklist")
+    pr.add_argument("--profile", help="specify or switch active profile")
+    pr.add_argument("--json", action="store_true", help="output preferences as raw JSON")
+
     # Preset / Search commands
     sub.add_parser("presets-dir", help="print the user preset folder for this OS")
     s = sub.add_parser("search", help="search TONE3000 catalog")
@@ -995,6 +1478,8 @@ def main():
     s.add_argument("--gear", choices=GEARS, help="filter by gear type")
     s.add_argument("--n", type=int, default=10, help="number of results")
     s.add_argument("--sort", default="trending", choices=["trending", "best-match", "newest", "oldest", "downloads-all-time"])
+    s.add_argument("--creators", help="filter by creator username")
+    s.add_argument("--no-prefs", action="store_true", help="disable preference ranking/boosting")
     s.add_argument("--json", action="store_true", help="output raw JSON")
 
     t = sub.add_parser("tone", help="show tone details and model variants")
@@ -1049,12 +1534,64 @@ def main():
             print(f"Verified:     {user.get('is_verified', False)}")
         else:
             print("Could not retrieve user info (token may be invalid or expired).")
+    elif a.cmd == "prefs":
+        setter_flags_present = any([
+            a.brands, a.amps, a.drives, a.cabs, a.reverbs, a.artists,
+            a.creators, a.monitoring, a.voicing, a.exclude_brand, a.exclude_gear
+        ])
+        action = "set" if setter_flags_present and a.action == "show" else a.action
+
+        if action == "show":
+            display_preferences(json_out=a.json)
+        elif action == "init":
+            if a.interactive:
+                interactive_prefs_wizard()
+            else:
+                tmpl = a.template or a.target or "default"
+                load_template_profile(tmpl, target_profile="default")
+        elif action == "set":
+            set_preference_values(
+                brands=a.brands,
+                amps=a.amps,
+                drives=a.drives,
+                cabs=a.cabs,
+                reverbs=a.reverbs,
+                artists=a.artists,
+                creators=a.creators,
+                monitoring=a.monitoring,
+                voicing=a.voicing,
+                exclude_brand=a.exclude_brand,
+                exclude_gear=a.exclude_gear,
+                profile_name=a.profile or a.target,
+            )
+        elif action == "sync":
+            sync_preferences_from_tone3000()
+        elif action == "template":
+            tmpl = a.target or a.template
+            if not tmpl:
+                print(f"Please specify a template name: {', '.join(PREF_TEMPLATES.keys())}")
+                return
+            load_template_profile(tmpl)
+        elif action == "profile":
+            prof_name = a.target or a.profile
+            prefs = load_preferences()
+            if not prof_name:
+                print(f"Active Profile: [{prefs.get('active_profile', 'default')}]")
+                print(f"Available Profiles: {', '.join(prefs.get('profiles', {}).keys())}")
+                return
+            if prof_name in prefs.get("profiles", {}):
+                prefs["active_profile"] = prof_name
+                save_preferences(prefs)
+                print(f"Switched active profile to [{prof_name}].")
+            else:
+                tmpl = a.template or "default"
+                load_template_profile(tmpl, target_profile=prof_name)
     elif a.cmd == "presets-dir":
         d = presets_dir()
         print(d)
         print("exists" if os.path.isdir(d) else "NOT FOUND — is the TONE3000 plugin/app installed and run once?")
     elif a.cmd == "search":
-        res = search(a.term, a.gear, a.n, a.sort)
+        res = search(a.term, a.gear, a.n, a.sort, creators=a.creators, apply_prefs=not a.no_prefs)
         if a.json:
             print(json.dumps(res, indent=2))
             return
@@ -1065,7 +1602,8 @@ def main():
             u = r.get("user") or {}
             uname = u.get("username") if isinstance(u, dict) else r.get("username")
             fmt = r.get("format") or r.get("platform") or "nam"
-            print(f"{r['id']:>6}  {r['title']}  [{r.get('gear')}/{fmt}]  dl={r.get('downloads_count', 0)} fav={r.get('favorites_count', 0)} by {uname}")
+            pref_marker = " ★" if r.get("_pref_score", 0) > 0 else ""
+            print(f"{r['id']:>6}  {r['title']}{pref_marker}  [{r.get('gear')}/{fmt}]  dl={r.get('downloads_count', 0)} fav={r.get('favorites_count', 0)} by {uname}")
             if r.get("makes"):
                 make_names = [m.get("name") if isinstance(m, dict) else str(m) for m in r["makes"]]
                 print(f"        makes: {', '.join(make_names)}")
@@ -1098,9 +1636,30 @@ def main():
             recipes = [recipes]
         out = a.out or presets_dir()
         os.makedirs(out, exist_ok=True)
+
+        prefs = load_preferences()
+        active = prefs.get("active_profile", "default")
+        prof_defaults = prefs.get("profiles", {}).get(active, {}).get("defaults", {})
+        pref_voicing = str(prof_defaults.get("voicing", "both")).lower()
+
+        gen_mono = not a.stereo_only
+        gen_stereo = not a.mono_only
+        if not a.stereo_only and not a.mono_only:
+            if pref_voicing == "mono":
+                gen_stereo = False
+            elif pref_voicing == "stereo":
+                gen_mono = False
+
+        pref_monitoring = str(prof_defaults.get("monitoring", "frfr")).lower()
+        if pref_monitoring in ("di-reamp", "di"):
+            for r in recipes:
+                has_cab_or_space = any(b.get("gear") in ("cab", "space") for b in r.get("chain", []))
+                if has_cab_or_space:
+                    print(f"Notice: Active profile monitoring is set to '{pref_monitoring.upper()}' (preamp-only), but preset '{r.get('name')}' includes cab/reverb blocks.")
+
         allw = []
         for r in recipes:
-            allw += build_recipe(r, out, a.copy_to, mono=not a.stereo_only, stereo=not a.mono_only, named=a.named)
+            allw += build_recipe(r, out, a.copy_to, mono=gen_mono, stereo=gen_stereo, named=a.named)
         bad = 0
         for w in allw:
             _, n, probs = verify(w, quiet=True)

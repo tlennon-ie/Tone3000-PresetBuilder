@@ -8,6 +8,7 @@ Presets are written straight into your local TONE3000 preset folder using captur
 > **Free TONE3000 API Key Required**: To use this tool to search the capture catalog and build custom presets, you need a free API key from TONE3000. Keys can be generated in seconds at [tone3000.com/settings](https://www.tone3000.com/settings) (under API Keys). See [🔐 Authentication & API Configuration (OAuth 2.0 PKCE & Secret Key)](#-authentication--api-configuration-oauth-20-pkce--secret-key) below for setup instructions.
 
 ## Changelog
+- **User Preference & Gear Hierarchy Engine**: Define ranked brand/amp/cab priorities, DI-reamp vs. Full setup monitoring, stereo vs. mono voicing, and auto-sync favorite creators from TONE3000.
 - **Official API v1 & OAuth 2.0 Compliance**: Presets and model downloads strictly adhere to official TONE3000 OAuth authentication, creator licensing, and API v1 endpoints.
 - **186 Bundled Artist Presets (Mono & Stereo)**: Pre-built, verified presets for all 80 Equipboard artist profiles plus iconic tone variations, installable via `t3k.py install-templates --category artists`.
 - **Official TONE3000 API v1 & OAuth 2.0**: Migrated from legacy scraping to official REST API v1 with OAuth 2.0 PKCE browser login and Secret Key support.
@@ -83,12 +84,65 @@ Then simply ask:
 
 ---
 
+## 🎛️ Gear Hierarchy & Personal Tone Preferences
+
+You can define your personal gear hierarchy so Claude and the CLI know exactly what brands, amps, drives, and speakers you prefer, whether you play through a **Full Setup** (studio monitors/FRFR/headphones with cabs) or a **DI-Reamp Setup** (preamp-only into real power amps & physical cabs), and whether you prefer **Stereo** or **Mono**.
+
+Preferences are stored in `%APPDATA%\TONE3000\preferences.json` (or `~/.config/TONE3000/preferences.json` on macOS/Linux), so they persist across git updates and skill reloads.
+
+### 1. Configure in Plain English with Claude (Zero Friction)
+Simply tell Claude what you like in the chat:
+> *"Claude, my preferred amp brands are Marshall and Mesa Boogie, I like Tube Screamers for boost, and I monitor with studio monitors in stereo."*  
+> *"Switch my setup to DI-reamp mode because I run into a real 4x12 guitar cab."*
+
+Claude runs `t3k.py prefs set ...` under the hood and updates your tone profile automatically!
+
+### 2. 30-Second Terminal Questionnaire
+Run the interactive wizard from your terminal:
+```bash
+cd skill/tone3000-preset-builder
+python scripts/t3k.py prefs init --interactive
+```
+
+### 3. Jump-Start with Style Archetypes
+Load pre-configured tone profiles for your favorite style:
+```bash
+python scripts/t3k.py prefs template modern-high-gain   # 5150, Dual Rectifier, Precision Drive, V30s
+python scripts/t3k.py prefs template vintage-blues      # Tweed Deluxe, Twin Reverb, Two-Rock, Klon, Spring
+python scripts/t3k.py prefs template british-crunch     # Plexi, JCM800, Treble Booster, Greenbacks
+python scripts/t3k.py prefs template 90s-grunge         # Mesa Dual Rectifier, DS-1, Big Muff, Rat
+python scripts/t3k.py prefs template di-reamp-studio    # Preamp-only DI chains, zero cabs/reverbs
+```
+
+### 4. Auto-Sync Favorite Creators from TONE3000
+```bash
+python scripts/t3k.py prefs sync
+```
+Discovers the capture creators you've favorited or downloaded on [tone3000.com](https://www.tone3000.com) (e.g. `@amalgamaudio`, `@flaviospanker`) and prioritizes their captures whenever searching or building tones!
+
+### 5. View Your Active Setup
+```bash
+python scripts/t3k.py prefs
+```
+
+---
+
 ## 🛠️ CLI Reference
 
 You can run the builder directly from your terminal:
 
 ```bash
 cd skill/tone3000-preset-builder
+
+# Preferences & Gear Hierarchy
+python scripts/t3k.py prefs                                 # view active hierarchy, monitoring, and voicing
+python scripts/t3k.py prefs init --interactive              # run guided 30-second setup questionnaire
+python scripts/t3k.py prefs set --brands "Marshall,Mesa"    # rank preferred brands in priority order
+python scripts/t3k.py prefs set --monitoring di-reamp       # switch to preamp-only DI mode (no cabs/reverbs)
+python scripts/t3k.py prefs set --monitoring frfr           # switch to full setup (includes cabs & mics)
+python scripts/t3k.py prefs set --voicing mono              # default to mono presets (or stereo/both)
+python scripts/t3k.py prefs sync                            # auto-discover favorite creators from your account
+python scripts/t3k.py prefs template modern-high-gain       # load a genre archetype profile
 
 # Rig Database & Offline Memory
 python scripts/t3k.py rig "prince"                          # query Prince hardware stack & TONE3000 IDs
@@ -100,7 +154,7 @@ python scripts/t3k.py install-templates --category artists  # drop in all 186 pr
 python scripts/t3k.py install-templates --category di-reamp # drop in preamp-only DI presets
 
 # Live Search & Inspection (requires login)
-python scripts/t3k.py search "tube screamer" --gear pedal   # search TONE3000 catalog
+python scripts/t3k.py search "tube screamer" --gear pedal   # search TONE3000 catalog (boosts preferred creators/brands)
 python scripts/t3k.py tone 86314                            # inspect tone details, models, tags, and description
 
 # Build & Verify Presets
